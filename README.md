@@ -17,6 +17,7 @@ Every commit represents a step in my learning path.
 - ✅ Font Management (FontConstants, FontWeights, FontSizes)
 
 ## Project Structure
+```
 lib/
 ├── app/
 │   └── app.dart
@@ -25,6 +26,6 @@ lib/
 │   └── font_manager.dart
 ├── domain/
 └── data/
-
+```
 ---
 > "Every expert was once a beginner." 🌱
