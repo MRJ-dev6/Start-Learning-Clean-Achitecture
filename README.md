@@ -1,17 +1,30 @@
-# clean_architicure_start
+# Start Learning Clean Architecture 🚀
 
-A new Flutter project.
+I'm sharing my learning journey in Clean Architecture with Flutter.
+Every commit represents a step in my learning path.
 
-## Getting Started
+## Commits Order (Step by Step)
+1. **first commit** — create a new Flutter project and clean the main.dart file
+2. **creating layers folders** — presentation, domain, data, and app
+3. **creating application class** — implementing the Singleton pattern in the app layer
+4. **add ColorManager** — managing app colors in the presentation layer
+5. **update project structure** — add Montserrat font assets with FontManager class
 
-This project is a starting point for a Flutter application.
+## Concepts Learned So Far
+- ✅ Clean Architecture layers structure
+- ✅ Singleton Design Pattern
+- ✅ Color Management (avoiding hardcoded colors)
+- ✅ Font Management (FontConstants, FontWeights, FontSizes)
 
-A few resources to get you started if this is your first Flutter project:
+## Project Structure
+lib/
+├── app/
+│   └── app.dart
+├── presentation/
+│   ├── color_manager.dart
+│   └── font_manager.dart
+├── domain/
+└── data/
 
-- [Learn Flutter](https://docs.flutter.dev/get-started/learn-flutter)
-- [Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Flutter learning resources](https://docs.flutter.dev/reference/learning-resources)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+---
+> "Every expert was once a beginner." 🌱
