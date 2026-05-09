@@ -6,7 +6,8 @@ class MyApp extends StatefulWidget {
 
   // ! named constructor
   MyApp._internal();
-  int counter = 0; // ? this is a instance variable that will be shared across all instances of MyApp
+  int counter =
+      0; // ? this is a instance variable that will be shared across all instances of MyApp
   // * singleton pattern
   static final MyApp _instance = MyApp._internal();
 
