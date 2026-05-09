@@ -11,3 +11,4 @@ void main() {
 // 3.creating application class in the app layer and implementing the singleton pattern in it.
 // 4.creating color manager class in the presentation layer to manage the colors of the app
 // 5.creating font manager class in the presentation layer to manage the fonts of the app
+// 6.Refactor color and font management classes; add values manager for consistent layout spacing.

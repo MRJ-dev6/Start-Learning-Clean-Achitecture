@@ -9,12 +9,13 @@ Every commit represents a step in my learning path.
 3. **creating application class** — implementing the Singleton pattern in the app layer
 4. **add ColorManager** — managing app colors in the presentation layer
 5. **update project structure** — add Montserrat font assets with FontManager class
-
+6. **add ValueManager** — this is a class that will be used to manage the margins, paddings and sizes in the app
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern
 - ✅ Color Management (avoiding hardcoded colors)
 - ✅ Font Management (FontConstants, FontWeights, FontSizes)
+- ✅ Value Management (Margins, Paddings, Sizes)
 
 ## Project Structure
 ```
@@ -23,7 +24,8 @@ lib/
 │   └── app.dart
 ├── presentation/
 │   ├── color_manager.dart
-│   └── font_manager.dart
+│   ├── font_manager.dart
+│   └──values_manager.dart
 ├── domain/
 └── data/
 ```
