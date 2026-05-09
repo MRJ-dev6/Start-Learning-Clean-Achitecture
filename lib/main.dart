@@ -13,3 +13,4 @@ void main() {
 // 5.creating font manager class in the presentation layer to manage the fonts of the app
 // 6.Refactor color and font management classes; add values manager for consistent layout spacing.
 // 7.Add style manager for centralized text styling; enhance maintainability and consistency across the app.
+// 8.Add theme manager to centralize app theming; improve maintainability and consistency across the app.

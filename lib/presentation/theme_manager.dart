@@ -103,3 +103,9 @@ ThemeData getApplicationTheme() {
     ),
   );
 }
+
+// ! this is a function that will be used to get the theme of the app, we will use it in the main.dart file to set the theme of the app.
+//? Benefit of using a theme manager class :
+//1. It helps to keep the code organized and maintainable.
+//2. It allows us to change the theme of the app in one place, and it will be reflected in all the places where we use the theme of the app.
+//3. It helps to avoid hardcoding the theme of the app in the code, and it makes it easier to change the theme of the app in the future if needed.
