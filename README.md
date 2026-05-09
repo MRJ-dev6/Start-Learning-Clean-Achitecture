@@ -19,6 +19,7 @@ Every commit represents a step in my learning path.
 - ✅ Font Management (FontConstants, FontWeights, FontSizes)
 - ✅ Value Management (Margins, Paddings, Sizes)
 - ✅ Style Management (LightStyle,RegularStyle, MediumStyle, SemiBoldStyle,BoldStyle)
+- ✅ Theme Management (PrimaryColors,AppBarStyle, TextStyle, InputDecorationStyle,ButtonStyle,ElevatedButtonStyle)
 ## Project Structure
 ```
 lib/
