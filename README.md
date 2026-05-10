@@ -12,6 +12,7 @@ Every commit represents a step in my learning path.
 6. **add ValueManager** — managing app values in the presentation layer
 7. **add StyleManager** — managing app styles in the presentation layer
 8. **add ThemeManager** —  managing app themes in the presentation layer
+9. **add RouteManager** — managing app routes in the presentation layer
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern
@@ -19,18 +20,34 @@ Every commit represents a step in my learning path.
 - ✅ Font Management (FontConstants, FontWeights, FontSizes)
 - ✅ Value Management (Margins, Paddings, Sizes)
 - ✅ Style Management (LightStyle,RegularStyle, MediumStyle, SemiBoldStyle,BoldStyle)
-- ✅ Theme Management (PrimaryColors,AppBarStyle, TextStyle, InputDecorationStyle,ButtonStyle,ElevatedButtonStyle)
+- ✅ ROute Management (SplashViewRoute,LoginViewRoute, RegisterViewRoute, OnBoaridngViewRoute,ForgotPasswordViewRoute, MainViewRoute, StoreDeatialsViewRoute)
 ## Project Structure
 ```
 lib/
 ├── app/
 │   └── app.dart
 ├── presentation/
-│   ├── color_manager.dart
-│   ├── font_manager.dart
-│   ├──values_manager.dart
-│   ├──style_manager.dart
-│   └──theme_manager.dart
+│   ├── forgotPassword/
+│   │   └──forgot_password.dart
+│   ├── login/
+│   │    └──login_view.dart
+│   ├── main/
+│   │    └──main_view.dart
+│   ├── onBoarding/
+│   │     └──on_boarding_view.dart
+│   ├── register/
+│   │    └──register_view.dart
+│   ├── resource/
+│   │     ├──color_manager.dart
+│   │     ├──font_manager.dart
+│   │     ├──routes_manager.dart
+│   │     ├──style_manager.dart
+│   │     ├──theme_manager.dart
+│   │     └──values_manager.dart
+│   ├──splash/
+│   │    └──splash_view.dart
+│   ├──storeDetails/
+│      └──store_details_view.dart
 ├── domain/
 └── data/
 ```

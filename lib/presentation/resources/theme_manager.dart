@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:tut_app/presentation/color_manager.dart';
-import 'package:tut_app/presentation/style_manager.dart';
-import 'package:tut_app/presentation/values_manager.dart';
+import 'package:tut_app/presentation/resources/color_manager.dart';
+import 'package:tut_app/presentation/resources/style_manager.dart';
+import 'package:tut_app/presentation/resources/values_manager.dart';
 
 ThemeData getApplicationTheme() {
   return ThemeData(
@@ -77,14 +77,26 @@ ThemeData getApplicationTheme() {
 
     //* input decoration theme (text form field)
     inputDecorationTheme: InputDecorationTheme(
+      //? content padding for text form field
       contentPadding: const EdgeInsets.all(AppPadding.p8),
-      hintStyle: getRegularStyle(color: ColorManager.gray),
-      labelStyle: getMediumStyle(color: ColorManager.gray),
+      //? hint style for text form field
+      hintStyle: getRegularStyle(
+        color: ColorManager.gray,
+        fontSize: AppSize.s14,
+      ),
+      //? label style for text form field
+      labelStyle: getMediumStyle(
+        color: ColorManager.gray,
+        fontSize: AppSize.s14,
+      ),
+      //? error style for text form field
       errorStyle: getRegularStyle(color: ColorManager.error),
+      //? enabled border for text form field
       enabledBorder: OutlineInputBorder(
         borderSide: BorderSide(color: ColorManager.gray, width: AppSize.s1),
         borderRadius: BorderRadius.circular(AppSize.s8),
       ),
+      //? focused border for text form field
       focusedBorder: OutlineInputBorder(
         borderSide: BorderSide(
           color: ColorManager.primaryColor,
@@ -92,12 +104,17 @@ ThemeData getApplicationTheme() {
         ),
         borderRadius: BorderRadius.circular(AppSize.s8),
       ),
+      //? error border for text form field
       errorBorder: OutlineInputBorder(
         borderSide: BorderSide(color: ColorManager.error, width: AppSize.s1),
         borderRadius: BorderRadius.circular(AppSize.s8),
       ),
+      //? focused error border for text form field
       focusedErrorBorder: OutlineInputBorder(
-        borderSide: BorderSide(color: ColorManager.error, width: AppSize.s1),
+        borderSide: BorderSide(
+          color: ColorManager.primaryColor,
+          width: AppSize.s1,
+        ),
         borderRadius: BorderRadius.circular(AppSize.s8),
       ),
     ),

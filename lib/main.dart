@@ -14,3 +14,4 @@ void main() {
 // 6.Refactor color and font management classes; add values manager for consistent layout spacing.
 // 7.Add style manager for centralized text styling; enhance maintainability and consistency across the app.
 // 8.Add theme manager to centralize app theming; improve maintainability and consistency across the app.
+// 9.Add Route manager to centralize navigation logic; enhance maintainability and scalability of the app's routing system.
