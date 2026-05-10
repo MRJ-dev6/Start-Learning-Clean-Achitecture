@@ -13,6 +13,7 @@ Every commit represents a step in my learning path.
 7. **add StyleManager** — managing app styles in the presentation layer
 8. **add ThemeManager** —  managing app themes in the presentation layer
 9. **add RouteManager** — managing app routes in the presentation layer
+10. **add RouteGenerator** — It allows us to handle undefined routes in one place
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern
@@ -21,6 +22,7 @@ Every commit represents a step in my learning path.
 - ✅ Value Management (Margins, Paddings, Sizes)
 - ✅ Style Management (LightStyle,RegularStyle, MediumStyle, SemiBoldStyle,BoldStyle)
 - ✅ ROute Management (SplashViewRoute,LoginViewRoute, RegisterViewRoute, OnBoaridngViewRoute,ForgotPasswordViewRoute, MainViewRoute, StoreDeatialsViewRoute)
+- ✅ RouteGenerator (all routes in one place , handle undefined routes)
 ## Project Structure
 ```
 lib/
