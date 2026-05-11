@@ -16,6 +16,7 @@ Every commit represents a step in my learning path.
 10. **add RouteGenerator** — It allows us to handle undefined routes in one place
 11. **add StringManager** — managing app strings in the presentation layer
 12. **add assets to the pubspec.yaml** — manage images and other assets in the app.
+13. **add AssetManager** — managing app assets in the presentation layer
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern
@@ -26,6 +27,7 @@ Every commit represents a step in my learning path.
 - ✅ Route Management (SplashViewRoute,LoginViewRoute, RegisterViewRoute, OnBoaridngViewRoute,ForgotPasswordViewRoute, MainViewRoute, StoreDeatialsViewRoute)
 - ✅ RouteGenerator (all routes in one place , handle undefined routes)
 - ✅ String Management (centralize app strings)
+- ✅ Asset Management (centralize asset paths)
 ## Project Structure
 ```
 lib/
@@ -43,6 +45,7 @@ lib/
 │   ├── register/
 │   │    └──register_view.dart
 │   ├── resource/
+          ├──assets_manager.dart
 │   │     ├──color_manager.dart
 │   │     ├──font_manager.dart
 │   │     ├──routes_manager.dart

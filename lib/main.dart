@@ -18,3 +18,4 @@ void main() {
 // 10.Add Route generator to handle undefined routes; improve user experience by providing feedback on navigation errors.
 // 11.Add String manager to centralize app strings; enhance maintainability and ease of localization in the future.
 // 12.Add assets to the pubspec.yaml file to manage images and other assets in the app.
+// 13.Add Assets manager to centralize asset paths; improve maintainability and ease of asset management in the app.

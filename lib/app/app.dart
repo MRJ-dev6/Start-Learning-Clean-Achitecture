@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tut_app/presentation/resources/routes_manager.dart';
 import 'package:tut_app/presentation/resources/theme_manager.dart';
 
 // ignore: must_be_immutable
@@ -23,7 +24,16 @@ class MyApp extends StatefulWidget {
 class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(theme: getApplicationTheme());
+    return MaterialApp(
+      debugShowCheckedModeBanner: false, // ? this will remove the debug banner from the app
+      //? use the route generator to generate the routes of the app and to handle the undefined routes of the app
+      onGenerateRoute: RouteGenerator
+          .getRoute, // ? this will use the getRoute method in the RouteGenerator class to generate the routes of the app and to handle the undefined routes of the app
+      initialRoute: RoutesManager
+          .splashRoute, //* this will set the initial route of the app to the splash route
+      theme:
+          getApplicationTheme(), //! this will set the theme of the app to the theme defined in the theme manager class
+    );
   }
 }
 
