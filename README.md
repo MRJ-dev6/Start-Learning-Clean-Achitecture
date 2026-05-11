@@ -14,6 +14,7 @@ Every commit represents a step in my learning path.
 8. **add ThemeManager** —  managing app themes in the presentation layer
 9. **add RouteManager** — managing app routes in the presentation layer
 10. **add RouteGenerator** — It allows us to handle undefined routes in one place
+11. **add StringManager** — managing app strings in the presentation layer
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern
@@ -21,8 +22,9 @@ Every commit represents a step in my learning path.
 - ✅ Font Management (FontConstants, FontWeights, FontSizes)
 - ✅ Value Management (Margins, Paddings, Sizes)
 - ✅ Style Management (LightStyle,RegularStyle, MediumStyle, SemiBoldStyle,BoldStyle)
-- ✅ ROute Management (SplashViewRoute,LoginViewRoute, RegisterViewRoute, OnBoaridngViewRoute,ForgotPasswordViewRoute, MainViewRoute, StoreDeatialsViewRoute)
+- ✅ Route Management (SplashViewRoute,LoginViewRoute, RegisterViewRoute, OnBoaridngViewRoute,ForgotPasswordViewRoute, MainViewRoute, StoreDeatialsViewRoute)
 - ✅ RouteGenerator (all routes in one place , handle undefined routes)
+- ✅ String Management (centralize app strings)
 ## Project Structure
 ```
 lib/
@@ -43,12 +45,13 @@ lib/
 │   │     ├──color_manager.dart
 │   │     ├──font_manager.dart
 │   │     ├──routes_manager.dart
+│   │     ├──strings_manager.dart
 │   │     ├──style_manager.dart
 │   │     ├──theme_manager.dart
 │   │     └──values_manager.dart
 │   ├──splash/
 │   │    └──splash_view.dart
-│   ├──storeDetails/
+│   └──storeDetails/
 │      └──store_details_view.dart
 ├── domain/
 └── data/

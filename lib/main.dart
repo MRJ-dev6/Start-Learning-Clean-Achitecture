@@ -16,3 +16,4 @@ void main() {
 // 8.Add theme manager to centralize app theming; improve maintainability and consistency across the app.
 // 9.Add Route manager to centralize navigation logic; enhance maintainability and scalability of the app's routing system.
 // 10.Add Route generator to handle undefined routes; improve user experience by providing feedback on navigation errors.
+// 11.Add String manager to centralize app strings; enhance maintainability and ease of localization in the future.
