@@ -15,6 +15,7 @@ Every commit represents a step in my learning path.
 9. **add RouteManager** — managing app routes in the presentation layer
 10. **add RouteGenerator** — It allows us to handle undefined routes in one place
 11. **add StringManager** — managing app strings in the presentation layer
+12. **add assets to the pubspec.yaml** — manage images and other assets in the app.
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern
