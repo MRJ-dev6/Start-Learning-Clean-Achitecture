@@ -17,6 +17,7 @@ Every commit represents a step in my learning path.
 11. **add StringManager** — managing app strings in the presentation layer
 12. **add assets to the pubspec.yaml** — manage images and other assets in the app.
 13. **add AssetManager** — managing app assets in the presentation layer
+14. **add ConstantsManager** — managing app constants in the presentation layer
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern
@@ -28,6 +29,7 @@ Every commit represents a step in my learning path.
 - ✅ RouteGenerator (all routes in one place , handle undefined routes)
 - ✅ String Management (centralize app strings)
 - ✅ Asset Management (centralize asset paths)
+- ✅ Creating timer object and delay feature
 ## Project Structure
 ```
 lib/
@@ -45,8 +47,9 @@ lib/
 │   ├── register/
 │   │    └──register_view.dart
 │   ├── resource/
-          ├──assets_manager.dart
+│   │     ├──assets_manager.dart
 │   │     ├──color_manager.dart
+│   │     ├──constants_manager.dart
 │   │     ├──font_manager.dart
 │   │     ├──routes_manager.dart
 │   │     ├──strings_manager.dart
