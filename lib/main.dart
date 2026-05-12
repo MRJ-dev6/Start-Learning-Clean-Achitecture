@@ -20,3 +20,5 @@ void main() {
 // 12.Add assets to the pubspec.yaml file to manage images and other assets in the app.
 // 13.Add Assets manager to centralize asset paths; improve maintainability and ease of asset management in the app.
 // 14.Add Splash screen delay constant to the constants manager class; enhance maintainability and ease of configuration for the splash screen delay time.
+// 15.Add Splash screen implementation with timer; improve user experience by providing a branded entry point to the app.
+// 16.Add OnBoarding screen assets and strings; enhance user onboarding experience with informative visuals and text.
