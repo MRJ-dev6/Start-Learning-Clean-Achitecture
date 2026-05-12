@@ -22,3 +22,4 @@ void main() {
 // 14.Add Splash screen delay constant to the constants manager class; enhance maintainability and ease of configuration for the splash screen delay time.
 // 15.Add Splash screen implementation with timer; improve user experience by providing a branded entry point to the app.
 // 16.Add OnBoarding screen assets and strings; enhance user onboarding experience with informative visuals and text.
+// 17.Add OnBoarding screen implementation by the wrong way by putting the business logic in the view; will refactor later to move business logic to the view model for better maintainability and testability.

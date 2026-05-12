@@ -28,6 +28,11 @@ class AppSize {
   static const double s17 = 17.0;
   static const double s18 = 18.0;
   static const double s20 = 20.0;
+  static const double s40 = 40.0;
+  static const double s50 = 50.0;
+  static const double s100 = 100.0;
+  static const double s250 = 250.0;
+  static const double s270 = 270.0;
 }
 
 // ! this is a class that will be used to manage the margins, paddings and sizes in the app, we will use it to define the margins, paddings and sizes that we will use in the app.
