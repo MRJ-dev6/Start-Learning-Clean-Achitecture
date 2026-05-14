@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:tut_app/domain/models.dart';
 import 'package:tut_app/presentation/resources/assets_manager.dart';
 import 'package:tut_app/presentation/resources/color_manager.dart';
 import 'package:tut_app/presentation/resources/routes_manager.dart';
@@ -25,6 +26,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       ..addListener(_pageControllerListener);
   }
 
+  //? pageControllerListener
   void _pageControllerListener() {
     final page = _pageController.page;
     if (page == null) return;
@@ -38,16 +40,17 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   @override
   void dispose() {
-    _pageController.removeListener(_pageControllerListener);
-    _pageController.dispose();
+    _pageController.removeListener(_pageControllerListener); //? remove the listener from the page controller to prevent memory leaks
+    _pageController.dispose();//? dispose the page controller to free up the resources used by the page controller and to prevent memory leaks
     super.dispose();
   }
-
+  //? on Boarding screen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.white,
+      backgroundColor: ColorManager.white, //? this will set the background color of the onBoarding screen white
       appBar: AppBar(
+        //? control the status bar color and the status bar icons color to be visible
         systemOverlayStyle: SystemUiOverlayStyle(
           statusBarColor: ColorManager
               .white, // ? this will set the status bar color to white and it will also set the status bar icons color to dark to be visible on the white background and we can use it to set the status bar color to any color that we want and to set the status bar icons color to any color that we want to be visible on the status bar color that we have set.
@@ -56,8 +59,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         backgroundColor: ColorManager.white,
         elevation: 0,
       ),
+      //? use page view builder to build the onBoarding screen and to control the page view and to control the page view index
       body: PageView.builder(
-        controller: _pageController,
+        controller: _pageController, //? controller for the page view to control the page view index
         itemCount: _list.length,
         // keep onPageChanged for explicit page change events
         onPageChanged: (index) {
@@ -69,11 +73,13 @@ class _OnBoardingViewState extends State<OnBoardingView> {
         },
         itemBuilder: (context, index) => OnBoardingPage(_list[index]),
       ),
+      //? bottom sheet for the onBoarding screen to show the navigation buttons and the page indicators
       bottomSheet: Container(
         color: ColorManager.primaryColor,
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
+            //? previous page button
             ElevatedButton(
               onPressed: () {
                 _pageController.previousPage(
@@ -89,6 +95,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 height: AppSize.s20,
               ),
             ),
+            //? page indicators
             Row(
               children: List.generate(
                 _list.length,
@@ -103,6 +110,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
                 ),
               ),
             ),
+            //? next page button
             ElevatedButton(
               onPressed: () {
                 _pageController.nextPage(
@@ -125,7 +133,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   }
 }
 
-late final List<SliderObject> _list = _getSliderData();
+late final List<SliderObject> _list = _getSliderData();//? this will get the slider data from the _getSliderData method and it will also make it a late final variable to be initialized only once and to be accessed only once
+
+//? this method will return a list of slider objects that will be used to show the data in the onBoarding screen and it will also make it a private method to be accessed only in this file and it will also make it a late final variable to be initialized only once and to be accessed only once
 List<SliderObject> _getSliderData() => [
   SliderObject(
     AppStrings.onBoardingTitle1,
@@ -148,7 +158,7 @@ List<SliderObject> _getSliderData() => [
     ImagesAssets.onBoardingLogo4,
   ),
 ];
-
+//? OnBoardingPage is the page that will be shown in the onBoarding screen and it will show the title and the subtitle and the image for each page in the onBoarding screen and it will also show the navigation buttons and the page indicators for each page in the onBoarding screen and it will also show the skip button to skip the onBoarding screen and to go to the login screen directly.
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage(this.sliderObject, {super.key});
   final SliderObject sliderObject;
@@ -158,11 +168,13 @@ class OnBoardingPage extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.start,
       children: [
         const SizedBox(height: 40),
+        //? title for the onBoarding page
         Text(
           sliderObject.title!,
           style: Theme.of(context).textTheme.headlineMedium,
         ),
         const SizedBox(height: AppSize.s20),
+        //? subtitle for the onBoarding page
         Padding(
           padding: const EdgeInsets.symmetric(horizontal: AppPadding.p20),
           child: Text(
@@ -172,11 +184,13 @@ class OnBoardingPage extends StatelessWidget {
           ),
         ),
         const SizedBox(height: AppSize.s40),
+        //? image for the onBoarding page
         SizedBox(
           height: AppSize.s270,
           child: SvgPicture.asset(sliderObject.image!),
         ),
         SizedBox(height: AppSize.s50),
+        //? skip button to skip the onBoarding screen and to go to the login screen directly
         Row(
           mainAxisAlignment: MainAxisAlignment.end,
           children: [
@@ -202,13 +216,6 @@ class OnBoardingPage extends StatelessWidget {
   }
 }
 
-class SliderObject {
-  String? title;
-  String? subTitle;
-  String? image;
-
-  SliderObject(this.title, this.subTitle, this.image);
-}
 
 //* OnBoarding screen is the screen that will be shown to the user when he opens the app for the first time and it will show him some information about the app and it will help him to understand how to use the app and what are the features of the app and it will also help him to understand how to navigate through the app and how to use the app in general.
 //! this is the onBoarding screen of the app and we can use it to show some information about the app and to help the user to understand how to use the app and what are the features of the app and it will also help him to understand how to navigate through the app and how to use the app in general.

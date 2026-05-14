@@ -23,3 +23,12 @@ void main() {
 // 15.Add Splash screen implementation with timer; improve user experience by providing a branded entry point to the app.
 // 16.Add OnBoarding screen assets and strings; enhance user onboarding experience with informative visuals and text.
 // 17.Add OnBoarding screen implementation by the wrong way by putting the business logic in the view; will refactor later to move business logic to the view model for better maintainability and testability.
+// 18.Add Base viewmodel to define the base structure for all viewmodels in the app
+// 19.Add OnBoarding viewmodel to handle the business logic of the onBoarding screen
+//* 20.Refactoring on_boarding_view.dart to move business logic to the viewmodel {
+//? what i done in the refactoring :
+// 1. I created a new file called onboarding_viewmodel.dart in the presentation layer
+// 2. I moved SliderObject to the models file in the domain layer
+// 3. I created a new class called SliderViewObject in models file to hold the data for the view
+// 4. I created a new class called OnboardingViewmodel that extends the BaseViewmodel class and implements the OnboardingViewmodelInputs and OnboardingViewmodelOutputs interfaces
+//* }

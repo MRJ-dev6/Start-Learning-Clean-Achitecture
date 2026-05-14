@@ -20,6 +20,7 @@ Every commit represents a step in my learning path.
 14. **add ConstantsManager** — managing app constants in the presentation layer
 15. **add onBoarding Assets And Strings**
 16. **Add OnBoarding screen implementation by the wrong way**
+17. **Start Refactoring onBoarding screen**
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern
@@ -34,6 +35,7 @@ Every commit represents a step in my learning path.
 - ✅ Creating timer object and delay feature
 - ✅ onBoarding Screen (OnBoarding screen is the screen that will be shown to the user when he opens the app for the first time and it will show him some information about the app and it will help him to understand how to use the app and what are the features of the app)
 - ✅ MVVM (View,Model,ModelView)
+- ✅ StreamController (Stream,Sink)
 ## Project Structure
 ```
 lib/
@@ -68,6 +70,7 @@ lib/
 │   └──storeDetails/
 │      └──store_details_view.dart
 ├── domain/
+│    └──models.dart
 └── data/
 ```
 ---
