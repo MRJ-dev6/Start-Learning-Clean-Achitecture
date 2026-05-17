@@ -49,11 +49,11 @@ class OnboardingViewmodel extends BaseViewmodel
   }
 
   @override
-  Sink<dynamic> get inputSliderViewObject => _streamController.sink;
+  Sink get inputSliderViewObject => _streamController.sink;
 
   //? onBoarding view outputs
   @override
-  Stream<dynamic> get outputSliderViewObject =>
+  Stream<SliderViewObject> get outputSliderViewObject =>
       _streamController.stream.map((SliderViewObject) => SliderViewObject);
 
   //* onBoarding private functions
@@ -104,7 +104,7 @@ abstract class OnboardingViewmodelInputs {
 //? outputs means "Data" that the viewmodel will send to the view
 abstract class OnboardingViewmodelOutputs {
   //* StreamController output
-  Stream get outputSliderViewObject;
+  Stream<SliderViewObject> get outputSliderViewObject;
 }
 
 //? whats the StreamController :

@@ -5,6 +5,7 @@ import 'package:tut_app/domain/models.dart';
 import 'package:tut_app/presentation/onBoarding/onboarding_viewmodel.dart';
 import 'package:tut_app/presentation/resources/assets_manager.dart';
 import 'package:tut_app/presentation/resources/color_manager.dart';
+import 'package:tut_app/presentation/resources/constants_manager.dart';
 import 'package:tut_app/presentation/resources/routes_manager.dart';
 import 'package:tut_app/presentation/resources/strings_manager.dart';
 import 'package:tut_app/presentation/resources/values_manager.dart';
@@ -17,10 +18,10 @@ class OnBoardingView extends StatefulWidget {
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
-  late  PageController _pageController;
+  final PageController _pageController = PageController();
   final OnboardingViewmodel _viewmodel = OnboardingViewmodel();
 
-  _bind() {
+  void _bind() {
     _viewmodel.start();
   }
 
@@ -29,8 +30,6 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     _bind();
     super.initState();
   }
-
-  
 
   @override
   void dispose() {
@@ -41,85 +40,52 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   //? on Boarding screen
   @override
   Widget build(BuildContext context) {
-    return _getContentWidget();
-  }
-
-  Widget _getContentWidget() {
-    return Scaffold(
-      backgroundColor: ColorManager
-          .white, //? this will set the background color of the onBoarding screen white
-      appBar: AppBar(
-        //? control the status bar color and the status bar icons color to be visible
-        systemOverlayStyle: SystemUiOverlayStyle(
-          statusBarColor: ColorManager
-              .white, // ? this will set the status bar color to white and it will also set the status bar icons color to dark to be visible on the white background and we can use it to set the status bar color to any color that we want and to set the status bar icons color to any color that we want to be visible on the status bar color that we have set.
-          statusBarIconBrightness: Brightness.dark,
-        ),
-        backgroundColor: ColorManager.white,
-        elevation: 0,
-      ),
-      //? use page view builder to build the onBoarding screen and to control the page view and to control the page view index
-      body: PageView.builder(
-        controller:
-            _pageController, //? controller for the page view to control the page view index
-        itemCount: _list.length,
-        // keep onPageChanged for explicit page change events
-        onPageChanged: (index) {
-          if (index != _currentIndex) {
-            setState(() {
-              _currentIndex = index;
-            });
-          }
-        },
-        itemBuilder: (context, index) => OnBoardingPage(_list[index]),
-      ),
-      //? bottom sheet for the onBoarding screen to show the navigation buttons and the page indicators
-      bottomSheet: Container(
-        color: ColorManager.primaryColor,
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            //? previous page button
-            ElevatedButton(
-              onPressed: () {
-                _pageController.previousPage(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                );
-              },
-              style: ButtonStyle(
-                elevation: WidgetStateProperty.all(AppSize.s0),
-              ),
-              child: SvgPicture.asset(
-                ImagesAssets.onBoardingLeftArrowIc,
-                height: AppSize.s20,
-              ),
-            ),
-            //? page indicators
-            //! must be here
-            //? next page button
-            ElevatedButton(
-              onPressed: () {
-                _pageController.nextPage(
-                  duration: const Duration(milliseconds: 300),
-                  curve: Curves.easeInOut,
-                );
-              },
-              style: ButtonStyle(
-                elevation: WidgetStateProperty.all(AppSize.s0),
-              ),
-              child: SvgPicture.asset(
-                ImagesAssets.onBoardingRightArrowIc,
-                height: AppSize.s20,
-              ),
-            ),
-          ],
-        ),
-      ),
+    return StreamBuilder<SliderViewObject>(
+      stream: _viewmodel.outputSliderViewObject,
+      builder: (context, snapshot) {
+        return _getContentWidget(snapshot.data);
+      },
     );
   }
+
+  Widget _getContentWidget(SliderViewObject? data) {
+    if (data == null) {
+      return Container();
+    } else {
+      return Scaffold(
+        backgroundColor: ColorManager
+            .white, //? this will set the background color of the onBoarding screen white
+        appBar: AppBar(
+          //? control the status bar color and the status bar icons color to be visible
+          systemOverlayStyle: SystemUiOverlayStyle(
+            statusBarColor: ColorManager
+                .white, // ? this will set the status bar color to white and it will also set the status bar icons color to dark to be visible on the white background and we can use it to set the status bar color to any color that we want and to set the status bar icons color to any color that we want to be visible on the status bar color that we have set.
+            statusBarIconBrightness: Brightness.dark,
+          ),
+          backgroundColor: ColorManager.white,
+          elevation: 0,
+        ),
+        //? use page view builder to build the onBoarding screen and to control the page view and to control the page view index
+        body: PageView.builder(
+          controller:
+              _pageController, //? controller for the page view to control the page view index
+          itemCount: data.numberOfSlides,
+          // keep onPageChanged for explicit page change events
+          onPageChanged: (index) {
+            _viewmodel.onPageChanged(index);
+          },
+          itemBuilder: (context, index) => OnBoardingPage(data.sliderObject),
+        ),
+        //? bottom sheet for the onBoarding screen to show the navigation buttons and the page indicators
+        bottomSheet: _GetBottomSheet(
+          pageController: _pageController,
+          viewmodel: _viewmodel,
+          data: data,
+        ),
+      );
+    }
+  }
 }
-//? this will get the slider data from the _getSliderData method and it will also make it a late final variable to be initialized only once and to be accessed only once
 
 //? OnBoardingPage is the page that will be shown in the onBoarding screen and it will show the title and the subtitle and the image for each page in the onBoarding screen and it will also show the navigation buttons and the page indicators for each page in the onBoarding screen and it will also show the skip button to skip the onBoarding screen and to go to the login screen directly.
 class OnBoardingPage extends StatelessWidget {
@@ -179,6 +145,91 @@ class OnBoardingPage extends StatelessWidget {
   }
 }
 
+class _GetBottomSheet extends StatelessWidget {
+  const _GetBottomSheet({
+    required this.pageController,
+    required this.viewmodel,
+    this.data,
+  });
+
+  final PageController pageController;
+  final OnboardingViewmodel viewmodel;
+  final SliderViewObject? data;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      color: ColorManager.primaryColor,
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          //? left arrow
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p14),
+            child: GestureDetector(
+              onTap: () {
+                pageController.animateToPage(
+                  viewmodel.goPrevious(),
+                  duration: const Duration(
+                    milliseconds: AppConstants.sliderAnimationDelay,
+                  ),
+                  curve: Curves.bounceInOut,
+                );
+              },
+              child: SizedBox(
+                width: AppSize.s20,
+                height: AppSize.s20,
+                child: SvgPicture.asset(ImagesAssets.onBoardingLeftArrowIc),
+              ),
+            ),
+          ),
+          //? page indicators
+          Row(
+            children: [
+              for (int i = 0; i < data!.numberOfSlides; i++)
+                Container(
+                  width: AppSize.s12,
+                  height: AppSize.s12,
+                  margin: const EdgeInsets.symmetric(horizontal: AppPadding.p8),
+                  child: _getProperCircle(i),
+                ),
+            ],
+          ),
+          //? right arrow
+          Padding(
+            padding: const EdgeInsets.all(AppPadding.p14),
+            child: GestureDetector(
+              onTap: () {
+                pageController.animateToPage(
+                  viewmodel.goNext(),
+                  duration: const Duration(
+                    milliseconds: AppConstants.sliderAnimationDelay,
+                  ),
+                  curve: Curves.bounceInOut,
+                );
+              },
+              child: SizedBox(
+                width: AppSize.s20,
+                height: AppSize.s20,
+                child: SvgPicture.asset(ImagesAssets.onBoardingRightArrowIc),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _getProperCircle(int index) {
+    if (data?.currentIndex == index) {
+      return SvgPicture.asset(ImagesAssets.onBoardingSolidCircleIc);
+    } else {
+      return SvgPicture.asset(ImagesAssets.onBoardingHollowCircleIc);
+    }
+  }
+}
+//? this will get the slider data from the _getSliderData method and it will also make it a late final variable to be initialized only once and to be accessed only once
+
 
 //* OnBoarding screen is the screen that will be shown to the user when he opens the app for the first time and it will show him some information about the app and it will help him to understand how to use the app and what are the features of the app and it will also help him to understand how to navigate through the app and how to use the app in general.
 //! this is the onBoarding screen of the app and we can use it to show some information about the app and to help the user to understand how to use the app and what are the features of the app and it will also help him to understand how to navigate through the app and how to use the app in general.
@@ -203,5 +254,3 @@ class OnBoardingPage extends StatelessWidget {
 //2. It helps to make the code more scalable and it helps to make the code more flexible and it helps to make the code more modular and it helps to make the code more organized and it helps to make the code more readable and it helps to make the code more understandable and it helps to make the code more maintainable and it helps to make the code more testable and it helps to make the code more reusable and it helps to make the code more scalable and it helps to make the code more flexible and it helps to make the code more modular and it helps to make the code more organized and it helps to make the code more readable and it helps to make the code more understandable.
 //3. It helps to make the code more maintainable and it helps to make the code more testable and it helps to make the code more reusable and it helps to make the code more scalable and it helps to make the code more flexible and it helps to make the code more modular and it helps to make the code more organized and it helps to make the code more readable and it helps to make the code more understandable.
 //4. It helps to make the code more reusable and it helps to make the code more scalable and it helps to make the code more flexible and it helps to make the code more modular and it helps to make the code more organized and it helps to make the code more readable and it helps to make the code more understandable.
-
-//! note : i did it by the wrong way by putting the business logic in the view and i will refactor it later to put the business logic in the view model and to connect the view model to the view and to make the code more maintainable and testable and to make the code more reusable and to make the code more scalable and to make the code more flexible and to make the code more modular and to make the code more organized and to make the code more readable and to make the code more understandable.

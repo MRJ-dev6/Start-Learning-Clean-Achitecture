@@ -37,4 +37,14 @@ void main() {
 // 8. I implemented the inputSliderViewObject and outputSliderViewObject to handle the input and output of the data to the view
 // 9. I implemented the goNext, goPrevious, and onPageChanged functions to handle the user interactions with the onBoarding screen and to update the data accordingly
 // 10. I created a new widget called _getContentWidget that will build the content of the onBoarding screen based on the data from the viewmodel
+// 11. I created a new widget called _getProperCircle that will return the proper circle widget based on the current index of the onBoarding screen
+// 12. I refactored the build function to use the _getContentWidget to build the content of the onBoarding screen and to use the _getProperCircle to build the circles at the bottom of the screen
+// 13. I removed the business logic from the view and i made the view only responsible for building the UI and handling the user interactions and i made the viewmodel responsible for handling the business logic and updating the data accordingly
+// 14. I tested the onBoarding screen to make sure that it is working properly and that the data is being updated correctly and that the UI is being built correctly based on the data from the viewmodel
+//? Benefits of using the MVVM architecture in the onBoarding screen :
+//1. It helps to separate the presentation layer from the business logic layer
+//2. It helps to make the code more maintainable and testable 
+//3. It helps to make the code more reusable and it helps to make the code more scalable 
+//4. It helps to make the code more flexible and it helps to make the code more modular 
+//5. It helps to make the code more organized and it helps to make the code more readable 
 //* }
