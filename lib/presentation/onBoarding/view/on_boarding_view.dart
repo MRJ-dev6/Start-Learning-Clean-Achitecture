@@ -17,7 +17,6 @@ class OnBoardingView extends StatefulWidget {
 
 class _OnBoardingViewState extends State<OnBoardingView> {
   late PageController _pageController;
-  int _currentIndex = 0;
 
   @override
   void initState() {
@@ -40,15 +39,20 @@ class _OnBoardingViewState extends State<OnBoardingView> {
 
   @override
   void dispose() {
-    _pageController.removeListener(_pageControllerListener); //? remove the listener from the page controller to prevent memory leaks
-    _pageController.dispose();//? dispose the page controller to free up the resources used by the page controller and to prevent memory leaks
+    _pageController.removeListener(
+      _pageControllerListener,
+    ); //? remove the listener from the page controller to prevent memory leaks
+    _pageController
+        .dispose(); //? dispose the page controller to free up the resources used by the page controller and to prevent memory leaks
     super.dispose();
   }
+
   //? on Boarding screen
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: ColorManager.white, //? this will set the background color of the onBoarding screen white
+      backgroundColor: ColorManager
+          .white, //? this will set the background color of the onBoarding screen white
       appBar: AppBar(
         //? control the status bar color and the status bar icons color to be visible
         systemOverlayStyle: SystemUiOverlayStyle(
@@ -61,7 +65,8 @@ class _OnBoardingViewState extends State<OnBoardingView> {
       ),
       //? use page view builder to build the onBoarding screen and to control the page view and to control the page view index
       body: PageView.builder(
-        controller: _pageController, //? controller for the page view to control the page view index
+        controller:
+            _pageController, //? controller for the page view to control the page view index
         itemCount: _list.length,
         // keep onPageChanged for explicit page change events
         onPageChanged: (index) {
@@ -133,31 +138,9 @@ class _OnBoardingViewState extends State<OnBoardingView> {
   }
 }
 
-late final List<SliderObject> _list = _getSliderData();//? this will get the slider data from the _getSliderData method and it will also make it a late final variable to be initialized only once and to be accessed only once
+ //? this will get the slider data from the _getSliderData method and it will also make it a late final variable to be initialized only once and to be accessed only once
 
-//? this method will return a list of slider objects that will be used to show the data in the onBoarding screen and it will also make it a private method to be accessed only in this file and it will also make it a late final variable to be initialized only once and to be accessed only once
-List<SliderObject> _getSliderData() => [
-  SliderObject(
-    AppStrings.onBoardingTitle1,
-    AppStrings.onBoardingSubTitle1,
-    ImagesAssets.onBoardingLogo1,
-  ),
-  SliderObject(
-    AppStrings.onBoardingTitle2,
-    AppStrings.onBoardingSubTitle2,
-    ImagesAssets.onBoardingLogo2,
-  ),
-  SliderObject(
-    AppStrings.onBoardingTitle3,
-    AppStrings.onBoardingSubTitle3,
-    ImagesAssets.onBoardingLogo3,
-  ),
-  SliderObject(
-    AppStrings.onBoardingTitle4,
-    AppStrings.onBoardingSubTitle4,
-    ImagesAssets.onBoardingLogo4,
-  ),
-];
+
 //? OnBoardingPage is the page that will be shown in the onBoarding screen and it will show the title and the subtitle and the image for each page in the onBoarding screen and it will also show the navigation buttons and the page indicators for each page in the onBoarding screen and it will also show the skip button to skip the onBoarding screen and to go to the login screen directly.
 class OnBoardingPage extends StatelessWidget {
   const OnBoardingPage(this.sliderObject, {super.key});

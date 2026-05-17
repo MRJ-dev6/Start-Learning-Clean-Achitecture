@@ -31,4 +31,9 @@ void main() {
 // 2. I moved SliderObject to the models file in the domain layer
 // 3. I created a new class called SliderViewObject in models file to hold the data for the view
 // 4. I created a new class called OnboardingViewmodel that extends the BaseViewmodel class and implements the OnboardingViewmodelInputs and OnboardingViewmodelOutputs interfaces
+// 5. I moved the private variables and functions to the viewmodel class
+// 6. I craeted a new function called _postDataToView that will post the data to the view and i called it in the start function to post the data when the viewmodel is initialized
+// 7. I implemented the dispose function to close the stream controller when the viewmodel is disposed
+// 8. I implemented the inputSliderViewObject and outputSliderViewObject to handle the input and output of the data to the view
+
 //* }

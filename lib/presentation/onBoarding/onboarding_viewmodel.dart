@@ -2,21 +2,27 @@ import 'dart:async';
 
 import 'package:tut_app/domain/models.dart';
 import 'package:tut_app/presentation/base/base_viewmodel.dart';
+import 'package:tut_app/presentation/resources/assets_manager.dart';
+import 'package:tut_app/presentation/resources/strings_manager.dart';
 
 class OnboardingViewmodel extends BaseViewmodel
     implements OnboardingViewmodelInputs, OnboardingViewmodelOutputs {
-  
   StreamController _streamController = StreamController<SliderViewObject>();
+  int _currentIndex = 0;
+
+  late final List<SliderObject> _list;
   //? onBoarding view Defualt values
   @override
   void dispose() {
-    // TODO: implement dispose
+    _streamController.close();
   }
 
   @override
   void start() {
-    // TODO: implement start
+    _list = _getSliderData();
+    _postDataToView();
   }
+
   //? onBoarding view inputs
   @override
   void goNext() {
@@ -32,16 +38,46 @@ class OnboardingViewmodel extends BaseViewmodel
   void onPageChanged(int index) {
     // TODO: implement onPageChanged
   }
-  
+
   @override
-  // TODO: implement inputSliderViewObject
-  Sink<dynamic> get inputSliderViewObject => throw UnimplementedError();
-  
+  Sink<dynamic> get inputSliderViewObject => _streamController.sink;
 
   //? onBoarding view outputs
   @override
-  // TODO: implement outputSliderViewObject
-  Stream<dynamic> get outputSliderViewObject => throw UnimplementedError();
+  Stream<dynamic> get outputSliderViewObject =>
+      _streamController.stream.map((SliderViewObject) => SliderViewObject);
+
+  //* onBoarding private functions
+  @override
+  void _postDataToView() {
+    inputSliderViewObject.add(
+      SliderViewObject(_list[_currentIndex], _list.length, _currentIndex),
+    );
+  }
+
+  //? this method will return a list of slider objects that will be used to show the data in the onBoarding screen and it will also make it a private method to be accessed only in this file and it will also make it a late final variable to be initialized only once and to be accessed only once
+  List<SliderObject> _getSliderData() => [
+    SliderObject(
+      AppStrings.onBoardingTitle1,
+      AppStrings.onBoardingSubTitle1,
+      ImagesAssets.onBoardingLogo1,
+    ),
+    SliderObject(
+      AppStrings.onBoardingTitle2,
+      AppStrings.onBoardingSubTitle2,
+      ImagesAssets.onBoardingLogo2,
+    ),
+    SliderObject(
+      AppStrings.onBoardingTitle3,
+      AppStrings.onBoardingSubTitle3,
+      ImagesAssets.onBoardingLogo3,
+    ),
+    SliderObject(
+      AppStrings.onBoardingTitle4,
+      AppStrings.onBoardingSubTitle4,
+      ImagesAssets.onBoardingLogo4,
+    ),
+  ];
 }
 
 //? inputs means "Orders" that the view will send to the viewmodel

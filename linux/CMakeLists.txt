@@ -48,7 +48,9 @@ endfunction()
 
 # Flutter library and tool build rules.
 set(FLUTTER_MANAGED_DIR "${CMAKE_CURRENT_SOURCE_DIR}/flutter")
-add_subdirectory(${FLUTTER_MANAGED_DIR})
+if(EXISTS "${FLUTTER_MANAGED_DIR}/CMakeLists.txt")
+  add_subdirectory(${FLUTTER_MANAGED_DIR})
+endif()
 
 # System-level dependencies.
 find_package(PkgConfig REQUIRED)
