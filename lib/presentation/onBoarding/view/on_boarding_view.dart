@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:tut_app/domain/models.dart';
+import 'package:tut_app/presentation/onBoarding/onboarding_viewmodel.dart';
 import 'package:tut_app/presentation/resources/assets_manager.dart';
 import 'package:tut_app/presentation/resources/color_manager.dart';
 import 'package:tut_app/presentation/resources/routes_manager.dart';
@@ -16,40 +17,34 @@ class OnBoardingView extends StatefulWidget {
 }
 
 class _OnBoardingViewState extends State<OnBoardingView> {
-  late PageController _pageController;
+  late  PageController _pageController;
+  final OnboardingViewmodel _viewmodel = OnboardingViewmodel();
+
+  _bind() {
+    _viewmodel.start();
+  }
 
   @override
   void initState() {
+    _bind();
     super.initState();
-    _pageController = PageController(initialPage: 0)
-      ..addListener(_pageControllerListener);
   }
 
-  //? pageControllerListener
-  void _pageControllerListener() {
-    final page = _pageController.page;
-    if (page == null) return;
-    final index = page.round();
-    if (index != _currentIndex) {
-      setState(() {
-        _currentIndex = index;
-      });
-    }
-  }
+  
 
   @override
   void dispose() {
-    _pageController.removeListener(
-      _pageControllerListener,
-    ); //? remove the listener from the page controller to prevent memory leaks
-    _pageController
-        .dispose(); //? dispose the page controller to free up the resources used by the page controller and to prevent memory leaks
+    _viewmodel.dispose();
     super.dispose();
   }
 
   //? on Boarding screen
   @override
   Widget build(BuildContext context) {
+    return _getContentWidget();
+  }
+
+  Widget _getContentWidget() {
     return Scaffold(
       backgroundColor: ColorManager
           .white, //? this will set the background color of the onBoarding screen white
@@ -101,20 +96,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
               ),
             ),
             //? page indicators
-            Row(
-              children: List.generate(
-                _list.length,
-                (index) => Padding(
-                  padding: const EdgeInsets.all(AppPadding.p8),
-                  child: SvgPicture.asset(
-                    index == _currentIndex
-                        ? ImagesAssets.onBoardingHollowCircleIc
-                        : ImagesAssets.onBoardingSolidCircleIc,
-                    height: AppSize.s12,
-                  ),
-                ),
-              ),
-            ),
+            //! must be here
             //? next page button
             ElevatedButton(
               onPressed: () {
@@ -137,9 +119,7 @@ class _OnBoardingViewState extends State<OnBoardingView> {
     );
   }
 }
-
- //? this will get the slider data from the _getSliderData method and it will also make it a late final variable to be initialized only once and to be accessed only once
-
+//? this will get the slider data from the _getSliderData method and it will also make it a late final variable to be initialized only once and to be accessed only once
 
 //? OnBoardingPage is the page that will be shown in the onBoarding screen and it will show the title and the subtitle and the image for each page in the onBoarding screen and it will also show the navigation buttons and the page indicators for each page in the onBoarding screen and it will also show the skip button to skip the onBoarding screen and to go to the login screen directly.
 class OnBoardingPage extends StatelessWidget {

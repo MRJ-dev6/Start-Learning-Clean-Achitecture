@@ -22,6 +22,7 @@ Every commit represents a step in my learning path.
 16. **Add OnBoarding screen implementation by the wrong way**
 17. **Start Refactoring onBoarding screen**
 18. **move private variables to viewmodel, enhance data handling, and improve memory management**
+19. **Implement the goNext, goPrevious, and onPageChanged functions and create a new widget called _getContentWidget that will build the content of the onBoarding screen based on the data from the viewmodel**
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern

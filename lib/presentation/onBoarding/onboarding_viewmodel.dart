@@ -25,18 +25,27 @@ class OnboardingViewmodel extends BaseViewmodel
 
   //? onBoarding view inputs
   @override
-  void goNext() {
-    // TODO: implement goNext
+  int goNext() {
+    int nextIndex = ++_currentIndex;
+    if (nextIndex == _list.length) {
+      nextIndex = 0;
+    }
+    return nextIndex;
   }
 
   @override
-  void goPrevious() {
-    // TODO: implement goPrevious
+  int goPrevious() {
+    int previousIndex = --_currentIndex;
+    if (previousIndex == -1) {
+      previousIndex = _list.length - 1;
+    }
+    return previousIndex;
   }
 
   @override
   void onPageChanged(int index) {
-    // TODO: implement onPageChanged
+    _currentIndex = index;
+    _postDataToView();
   }
 
   @override
@@ -82,8 +91,8 @@ class OnboardingViewmodel extends BaseViewmodel
 
 //? inputs means "Orders" that the view will send to the viewmodel
 abstract class OnboardingViewmodelInputs {
-  void goNext() {} //! when user clicks on the right arrow
-  void goPrevious() {} //! when user clicks on the left arrow
+  int goNext(); //! when user clicks on the right arrow
+  int goPrevious(); //! when user clicks on the left arrow
   void onPageChanged(
     int index,
   ) {} //! when user changes the page by swiping or by clicking on the page indicators

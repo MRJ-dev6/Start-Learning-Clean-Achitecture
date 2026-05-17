@@ -35,5 +35,6 @@ void main() {
 // 6. I craeted a new function called _postDataToView that will post the data to the view and i called it in the start function to post the data when the viewmodel is initialized
 // 7. I implemented the dispose function to close the stream controller when the viewmodel is disposed
 // 8. I implemented the inputSliderViewObject and outputSliderViewObject to handle the input and output of the data to the view
-
+// 9. I implemented the goNext, goPrevious, and onPageChanged functions to handle the user interactions with the onBoarding screen and to update the data accordingly
+// 10. I created a new widget called _getContentWidget that will build the content of the onBoarding screen based on the data from the viewmodel
 //* }
