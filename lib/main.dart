@@ -48,3 +48,4 @@ void main() {
 //4. It helps to make the code more flexible and it helps to make the code more modular 
 //5. It helps to make the code more organized and it helps to make the code more readable 
 //* }
+//21. Add some dependencies to the pubspec.yaml file (dio, retrofit, build_runner, retrofit_generator, json_serializable, analyzer)

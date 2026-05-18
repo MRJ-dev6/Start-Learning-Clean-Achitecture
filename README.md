@@ -24,6 +24,7 @@ Every commit represents a step in my learning path.
 18. **move private variables to viewmodel, enhance data handling, and improve memory management**
 19. **Implement the goNext, goPrevious, and onPageChanged functions and create a new widget called _getContentWidget that will build the content of the onBoarding screen based on the data from the viewmodel**
 20. **onBoarding Screen Refactoring is done**
+21. **Add some dependencies to the pubspec.yaml file** — dio, retrofit, build_runner, retrofit_generator, json_serializable, analyzer
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern
@@ -39,6 +40,7 @@ Every commit represents a step in my learning path.
 - ✅ onBoarding Screen (OnBoarding screen is the screen that will be shown to the user when he opens the app for the first time and it will show him some information about the app and it will help him to understand how to use the app and what are the features of the app)
 - ✅ MVVM (View,Model,ModelView)
 - ✅ StreamController (Stream,Sink)
+- ✅ MockApi (it is a fake api that we can use to test our app without having to rely on a real api and it is useful for testing and development purposes and it is also useful for testing the app in different scenarios and it is also useful for testing the app with different data and it is also useful for testing the app with different responses from the api and it is also useful for testing the app with different error scenarios from the api)
 ## Project Structure
 ```
 lib/
