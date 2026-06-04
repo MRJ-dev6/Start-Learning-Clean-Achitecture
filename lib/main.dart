@@ -57,3 +57,4 @@ void main() {
 //? dio: A simple and powerful HTTP client for Dart, making it easy to make API calls and handle responses.
 //}
 //22. Add response classes to handle the API responses and to make it easier to convert the JSON data to Dart objects and to handle the data in a more structured way.
+//23. Generate the code for the response classes using the json_serializable package and create fromJson and toJson functions for each class to handle the conversion between JSON data and Dart objects.

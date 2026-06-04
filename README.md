@@ -26,6 +26,7 @@ Every commit represents a step in my learning path.
 20. **onBoarding Screen Refactoring is done**
 21. **Add some dependencies to the pubspec.yaml file** — dio, retrofit, build_runner, retrofit_generator, json_serializable, analyzer
 22. **Add response classes to handle the API responses** — BaseResponse,UserResponse,ContactsResponse, AuthResponse
+23. **Generate the code for the response classes using the json_serializable package and create fromJson and toJson functions for each class to handle the conversion between JSON data and Dart objects.**
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern
@@ -79,7 +80,13 @@ lib/
 ├── domain/
 │    └──models.dart
 └── data/
-    └──response.dart
+    ├──response.dart
+    └──response.g.dart
 ```
----
+
+## ScreenShots
+<p align="center">
+  <img src="./Screenshot From 2026-05-13 02-33-35.png" width="45%" />
+  <img src="./Screenshot From 2026-05-12 22-07-32.png" width="45%" />
+</p>---
 > "Every expert was once a beginner." 🌱
