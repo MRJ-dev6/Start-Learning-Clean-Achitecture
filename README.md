@@ -39,7 +39,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 1. Project setup + clean main.dart
 2. Create layers (presentation, domain, data, app)
 3. Application class + Singleton
-4-14. Resource Managers (Color, Font, Style, Theme, Route, String, Asset, Constants...)
+4. to 14 Resource Managers (Color, Font, Style, Theme, Route, String, Asset, Constants...)
 15. OnBoarding Assets & Strings
 16. OnBoarding Screen (first implementation)
 17. OnBoarding Refactoring with MVVM
