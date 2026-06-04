@@ -1,51 +1,70 @@
 # Start Learning Clean Architecture 🚀
 
-I'm sharing my learning journey in Clean Architecture with Flutter.
-Every commit represents a step in my learning path.
+**Flutter Clean Architecture Learning Journey | Step by Step**
 
-## Commits Order (Step by Step)
-1. **first commit** — create a new Flutter project and clean the main.dart file
-2. **creating layers folders** — presentation, domain, data, and app
-3. **creating application class** — implementing the Singleton pattern in the app layer
-4. **add ColorManager** — managing app colors in the presentation layer
-5. **update project structure** — add Montserrat font assets with FontManager class
-6. **add ValueManager** — managing app values in the presentation layer
-7. **add StyleManager** — managing app styles in the presentation layer
-8. **add ThemeManager** —  managing app themes in the presentation layer
-9. **add RouteManager** — managing app routes in the presentation layer
-10. **add RouteGenerator** — It allows us to handle undefined routes in one place
-11. **add StringManager** — managing app strings in the presentation layer
-12. **add assets to the pubspec.yaml** — manage images and other assets in the app.
-13. **add AssetManager** — managing app assets in the presentation layer
-14. **add ConstantsManager** — managing app constants in the presentation layer
-15. **add onBoarding Assets And Strings**
-16. **Add OnBoarding screen implementation by the wrong way**
-17. **Start Refactoring onBoarding screen**
-18. **move private variables to viewmodel, enhance data handling, and improve memory management**
-19. **Implement the goNext, goPrevious, and onPageChanged functions and create a new widget called _getContentWidget that will build the content of the onBoarding screen based on the data from the viewmodel**
-20. **onBoarding Screen Refactoring is done**
-21. **Add some dependencies to the pubspec.yaml file** — dio, retrofit, build_runner, retrofit_generator, json_serializable, analyzer
-22. **Add response classes to handle the API responses** — BaseResponse,UserResponse,ContactsResponse, AuthResponse
-23. **Generate the code for the response classes using the json_serializable package and create fromJson and toJson functions for each class to handle the conversion between JSON data and Dart objects.**
-## Concepts Learned So Far
-- ✅ Clean Architecture layers structure
-- ✅ Singleton Design Pattern
-- ✅ Color Management (avoiding hardcoded colors)
-- ✅ Font Management (FontConstants, FontWeights, FontSizes)
-- ✅ Value Management (Margins, Paddings, Sizes)
-- ✅ Style Management (LightStyle,RegularStyle, MediumStyle, SemiBoldStyle,BoldStyle)
-- ✅ Route Management (SplashViewRoute,LoginViewRoute, RegisterViewRoute, OnBoaridngViewRoute,ForgotPasswordViewRoute, MainViewRoute, StoreDeatialsViewRoute)
-- ✅ RouteGenerator (all routes in one place , handle undefined routes)
-- ✅ String Management (centralize app strings)
-- ✅ Asset Management (centralize asset paths)
-- ✅ Creating timer object and delay feature
-- ✅ onBoarding Screen (OnBoarding screen is the screen that will be shown to the user when he opens the app for the first time and it will show him some information about the app and it will help him to understand how to use the app and what are the features of the app)
-- ✅ MVVM (View,Model,ModelView)
-- ✅ StreamController (Stream,Sink)
-- ✅ MockApi (it is a fake api that we can use to test our app without having to rely on a real api and it is useful for testing and development purposes and it is also useful for testing the app in different scenarios and it is also useful for testing the app with different data and it is also useful for testing the app with different responses from the api and it is also useful for testing the app with different error scenarios from the api)
-- ✅ json_serializable (package is a code generator for JSON serialization and deserialization in Dart.)
-## Project Structure
-```
+I'm sharing my personal journey learning Clean Architecture with Flutter. Every commit is a real step in my learning path.
+
+---
+
+## ✨ What I Built So Far
+
+- Clean Architecture layers (Presentation, Domain, Data)
+- Professional resource management (Colors, Fonts, Themes, Strings, Assets...)
+- MVVM Architecture for OnBoarding Screen
+- Mock API with WireMock
+- Dio + Retrofit setup with code generation
+- BaseResponse + multiple typed response models
+
+---
+
+## 📸 Screenshots
+
+<p align="center">
+  <img src="./Screenshot From 2026-05-12 22-07-32.png" width="45%" />
+  <img src="./Screenshot From 2026-05-13 02-33-35.png" width="45%" />
+</p>
+
+---
+
+## 📽️ Videos
+
+<p align="center">
+  <video src="https://github.com/user-attachments/assets/1fa24f3a-fb51-47b4-9553-4cf833124ead" width="80%" controls></video>
+</p>
+
+---
+
+## 📋 Commits Order (Step by Step)
+
+1. Project setup + clean main.dart
+2. Create layers (presentation, domain, data, app)
+3. Application class + Singleton
+4-14. Resource Managers (Color, Font, Style, Theme, Route, String, Asset, Constants...)
+15. OnBoarding Assets & Strings
+16. OnBoarding Screen (first implementation)
+17. OnBoarding Refactoring with MVVM
+21. Add Dio + Retrofit + json_serializable
+22. Create BaseResponse + specific response models
+23. Code generation for JSON handling
+
+---
+
+## ✅ Concepts Learned
+
+- ✅ Clean Architecture Structure
+- ✅ Singleton Pattern
+- ✅ MVVM Architecture
+- ✅ Resource Management
+- ✅ Route Management with RouteGenerator
+- ✅ Mock API with WireMock
+- ✅ Dio + Retrofit + Code Generation
+- ✅ JSON Serialization (json_serializable)
+
+---
+
+## 📁 Project Structure
+
+```bash
 lib/
 ├── app/
 │   └── app.dart
@@ -83,17 +102,3 @@ lib/
     ├──response.dart
     └──response.g.dart
 ```
-
-## ScreenShots
-<p align="center">
-  <img src="./Screenshot From 2026-05-13 02-33-35.png" width="45%" />
-  <img src="./Screenshot From 2026-05-12 22-07-32.png" width="45%" />
-</p>
-
-## Videos
-<p align="center">
-  <video src="https://github.com/user-attachments/assets/1fa24f3a-fb51-47b4-9553-4cf833124ead" width="100%" controls></video>
-</p>
-
----
-> "Every expert was once a beginner." 🌱
