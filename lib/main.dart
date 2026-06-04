@@ -48,4 +48,12 @@ void main() {
 //4. It helps to make the code more flexible and it helps to make the code more modular 
 //5. It helps to make the code more organized and it helps to make the code more readable 
 //* }
-//21. Add some dependencies to the pubspec.yaml file (dio, retrofit, build_runner, retrofit_generator, json_serializable, analyzer)
+//21. Add some dependencies to the pubspec.yaml file (dio, retrofit, build_runner, retrofit_generator, json_serializable, analyzer){
+//? retrofit: is a type conversion dio client generator using source_gen and inspired by Chopper and Retrofit.
+//? build_runner: A tool for generating code in Dart, often used with packages like retrofit_generator to automate the creation of API client code.
+//? retrofit_generator: A code generator for the retrofit package that generates API client code based on annotations, reducing boilerplate and improving maintainability.
+//? json_serializable: A package that generates code for JSON serialization and deserialization, making it easier to convert between Dart objects and JSON data.
+//? analyzer: A package that provides static analysis of Dart code, helping to identify potential issues and improve code quality.
+//? dio: A simple and powerful HTTP client for Dart, making it easy to make API calls and handle responses.
+//}
+//22. Add response classes to handle the API responses and to make it easier to convert the JSON data to Dart objects and to handle the data in a more structured way.

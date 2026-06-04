@@ -25,6 +25,7 @@ Every commit represents a step in my learning path.
 19. **Implement the goNext, goPrevious, and onPageChanged functions and create a new widget called _getContentWidget that will build the content of the onBoarding screen based on the data from the viewmodel**
 20. **onBoarding Screen Refactoring is done**
 21. **Add some dependencies to the pubspec.yaml file** — dio, retrofit, build_runner, retrofit_generator, json_serializable, analyzer
+22. **Add response classes to handle the API responses** — BaseResponse,UserResponse,ContactsResponse, AuthResponse
 ## Concepts Learned So Far
 - ✅ Clean Architecture layers structure
 - ✅ Singleton Design Pattern
@@ -41,6 +42,7 @@ Every commit represents a step in my learning path.
 - ✅ MVVM (View,Model,ModelView)
 - ✅ StreamController (Stream,Sink)
 - ✅ MockApi (it is a fake api that we can use to test our app without having to rely on a real api and it is useful for testing and development purposes and it is also useful for testing the app in different scenarios and it is also useful for testing the app with different data and it is also useful for testing the app with different responses from the api and it is also useful for testing the app with different error scenarios from the api)
+- ✅ json_serializable (package is a code generator for JSON serialization and deserialization in Dart.)
 ## Project Structure
 ```
 lib/
@@ -77,6 +79,7 @@ lib/
 ├── domain/
 │    └──models.dart
 └── data/
+    └──response.dart
 ```
 ---
 > "Every expert was once a beginner." 🌱
