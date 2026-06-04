@@ -36,16 +36,16 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 
 ## 📋 Commits Order (Step by Step)
 
-1. Project setup + clean main.dart
-2. Create layers folders (presentation, domain, data, app)
-3. Create Application class + Singleton Pattern
-4-14. Add Resource Managers (Color, Font, Style, Theme, Route, String, Asset, Constants...)
-15. OnBoarding Assets & Strings
-16. OnBoarding Screen (first implementation)
-17. OnBoarding Screen Refactoring with MVVM
-18. Add Dio + Retrofit + json_serializable packages
-19. Create BaseResponse class + specific response models
-20. Code generation for JSON handling (build_runner)
+1 . Project setup + clean main.dart
+2 . Create layers folders (presentation, domain, data, app)
+3 . Create Application class + Singleton Pattern
+4-14 . Add Resource Managers (Color, Font, Style, Theme, Route, String, Asset, Constants...)
+15 . OnBoarding Assets & Strings
+16 . OnBoarding Screen (first implementation)
+17 . OnBoarding Screen Refactoring with MVVM
+18 . Add Dio + Retrofit + json_serializable packages
+19 . Create BaseResponse class + specific response models
+20 . Code generation for JSON handling (build_runner)
 
 ---
 
