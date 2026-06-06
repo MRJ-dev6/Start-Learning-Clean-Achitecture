@@ -60,3 +60,4 @@ void main() {
 //23. Generate the code for the response classes using the json_serializable package and create fromJson and toJson functions for each class to handle the conversion between JSON data and Dart objects.
 //24. Add the API client class using the retrofit package to define the API endpoints and to handle the API calls in a more structured way and to reduce boilerplate code when making API calls.
 //25. Create login models to represent the data structure of the response from the login API and to make it easier to convert the JSON data to Dart objects and to handle the data in a more structured way in the app.
+//26. Create extensions functions to handle the null String and int values and to provide default values for them to avoid null exceptions in the app.

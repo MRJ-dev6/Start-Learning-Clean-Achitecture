@@ -48,6 +48,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 20- Code generation for JSON handling (build_runner) <br>
 21- Add the API client class using the retrofit package <br>
 22- Create login models to represent the data structure of the response <br>
+23- Create extensions functions <br>
 ---
 
 ## ✅ Concepts Learned
@@ -60,7 +61,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 - ✅ Mock API with WireMock
 - ✅ Dio + Retrofit + Code Generation
 - ✅ JSON Serialization (json_serializable)
-
+- ✅ extensions functions
 ---
 
 ## 📁 Project Structure
@@ -68,7 +69,8 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 ```bash
 lib/
 ├── app/
-│   └── app.dart
+│   ├── app.dart
+│   └── extensions.dart
 ├── presentation/
 │   ├── forgotPassword/
 │   │   └──forgot_password.dart
