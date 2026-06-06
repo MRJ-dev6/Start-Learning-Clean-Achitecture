@@ -46,7 +46,8 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 18- Add Dio + Retrofit + json_serializable packages <br>
 19- Create BaseResponse class + specific response models <br>
 20- Code generation for JSON handling (build_runner) <br>
-
+21- Add the API client class using the retrofit package <br>
+22- Create login models to represent the data structure of the response <br>
 ---
 
 ## ✅ Concepts Learned
@@ -99,6 +100,10 @@ lib/
 ├── domain/
 │    └──models.dart
 └── data/
-    ├──response.dart
-    └──response.g.dart
+    ├──network
+    │  ├──app_api.dart
+    │  └──app_api.g.dart
+    └──response
+       ├──response.dart
+       └──response.g.dart
 ```
