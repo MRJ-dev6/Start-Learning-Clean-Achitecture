@@ -62,3 +62,4 @@ void main() {
 //25. Create login models to represent the data structure of the response from the login API and to make it easier to convert the JSON data to Dart objects and to handle the data in a more structured way in the app.
 //26. Create extensions functions to handle the null String and int values and to provide default values for them to avoid null exceptions in the app.
 //27. Create mapper extensions to convert the response objects from the data layer into domain models that can be used in the presentation layer and to handle the conversion logic in a more structured way and to reduce boilerplate code when converting between different data structures.
+//28. Add dartz Dependency to the pubspec.yaml file to handle functional programming concepts in Dart and to make it easier to handle errors and to work with nullable types in a more structured way.
