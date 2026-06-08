@@ -52,6 +52,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 24. Create mapper extensions  <br>
 25. Start implementing the login request <br>
 26. Create the remote data source class and remote data source implementation class <br>
+27.Add the network info class and network info implementation class
 </p>
 
 ---
@@ -117,6 +118,7 @@ lib/
     │  ├──app_api.dart
     │  ├──app_api.g.dart
     │  ├──failure.dart
+    │  ├──network_info.dart
     │  └──requests.dart
     ├─response
     │  ├──response.dart
