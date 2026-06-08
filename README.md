@@ -51,6 +51,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 23- Create extensions functions <br>
 24- Create mapper extensions  <br>
 </p>
+
 ---
 
 ## ✅ Concepts Learned
