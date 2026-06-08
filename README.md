@@ -35,7 +35,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 ---
 
 ## 📋 Commits Order (Step by Step)
-
+<p>
 1- Project setup + clean main.dart <br>
 2- Create layers folders (presentation, domain, data, app) <br>
 3- Create Application class + Singleton Pattern <br>
@@ -50,6 +50,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 22- Create login models to represent the data structure of the response <br>
 23- Create extensions functions <br>
 24- Create mapper extensions  <br>
+</p>
 ---
 
 ## ✅ Concepts Learned
