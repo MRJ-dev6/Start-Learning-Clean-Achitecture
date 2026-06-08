@@ -5,7 +5,6 @@
 I'm sharing my personal journey learning Clean Architecture with Flutter. Every commit is a real step in my learning path.
 
 ---
-
 ## ✨ What I Built So Far
 
 - Clean Architecture layers (Presentation, Domain, Data)
@@ -14,7 +13,11 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 - Mock API with WireMock
 - Dio + Retrofit setup with code generation
 - BaseResponse + multiple typed response models
-
+- Extension Functions (`NonNullString` & `NonNullInteger`)
+- Login models in Domain Layer
+- `AppServiceClient` using Retrofit + Dio
+- Organized Data Layer (network + response folders)
+- Started implementing the Login request
 ---
 
 ## 📸 Screenshots
