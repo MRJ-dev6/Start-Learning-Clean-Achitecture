@@ -63,3 +63,5 @@ void main() {
 //26. Create extensions functions to handle the null String and int values and to provide default values for them to avoid null exceptions in the app.
 //27. Create mapper extensions to convert the response objects from the data layer into domain models that can be used in the presentation layer and to handle the conversion logic in a more structured way and to reduce boilerplate code when converting between different data structures.
 //28. Add dartz Dependency to the pubspec.yaml file to handle functional programming concepts in Dart and to make it easier to handle errors and to work with nullable types in a more structured way.
+//29. Refactor the repository interface to use the Either type from the dartz package to handle the success and failure cases of the login operation in a more structured way and to improve error handling in the app.
+//30. Start implementing the login request in the repository implementation class to handle the login operation and to make the API call to the login endpoint and to handle the response and to return either a Failure or an Auth object based on the result of the login operation.

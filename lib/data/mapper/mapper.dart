@@ -1,6 +1,6 @@
 import 'package:tut_app/app/extensions.dart';
 import 'package:tut_app/data/response/response.dart';
-import 'package:tut_app/domain/models.dart';
+import 'package:tut_app/domain/models/models.dart';
 import 'package:tut_app/presentation/resources/constants_manager.dart';
 
 extension UserResponseMapper on UserResponse? {

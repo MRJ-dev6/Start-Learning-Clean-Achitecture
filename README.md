@@ -36,20 +36,21 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 
 ## 📋 Commits Order (Step by Step)
 <p>
-1- Project setup + clean main.dart <br>
-2- Create layers folders (presentation, domain, data, app) <br>
-3- Create Application class + Singleton Pattern <br>
-4-14- Add Resource Managers (Color, Font, Style, Theme, Route, String, Asset, Constants...) <br>
-15- OnBoarding Assets & Strings <br>
-16- OnBoarding Screen (first implementation) <br>
-17- OnBoarding Screen Refactoring with MVVM <br>
-18- Add Dio + Retrofit + json_serializable packages <br>
-19- Create BaseResponse class + specific response models <br>
-20- Code generation for JSON handling (build_runner) <br>
-21- Add the API client class using the retrofit package <br>
-22- Create login models to represent the data structure of the response <br>
-23- Create extensions functions <br>
-24- Create mapper extensions  <br>
+1. Project setup + clean main.dart <br>
+2. Create layers folders (presentation, domain, data, app) <br>
+3. Create Application class + Singleton Pattern <br>
+4-14. Add Resource Managers (Color, Font, Style, Theme, Route, String, Asset, Constants...) <br>
+15. OnBoarding Assets & Strings <br>
+16. OnBoarding Screen (first implementation) <br>
+17. OnBoarding Screen Refactoring with MVVM <br>
+18. Add Dio + Retrofit + json_serializable packages <br>
+19. Create BaseResponse class + specific response models <br>
+20. Code generation for JSON handling (build_runner) <br>
+21. Add the API client class using the retrofit package <br>
+22. Create login models to represent the data structure of the response <br>
+23. Create extensions functions <br>
+24. Create mapper extensions  <br>
+25. Start implementing the login request <br>
 </p>
 
 ---
@@ -66,6 +67,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 - ✅ JSON Serialization (json_serializable)
 - ✅ extensions functions
 - ✅ Mapping
+- ✅ Either
 ---
 
 ## 📁 Project Structure
@@ -104,11 +106,16 @@ lib/
 │   └──storeDetails/
 │      └──store_details_view.dart
 ├── domain/
-│    └──models.dart
+│    ├──models
+│    │  └──models.dart
+│    └──repository
+│          └──repository.dart   
 └── data/
     ├──network
     │  ├──app_api.dart
-    │  └──app_api.g.dart
+    │  ├──app_api.g.dart
+    │  ├──failure.dart
+    │  └──requests.dart
     ├─response
     │  ├──response.dart
     │  └──response.g.dart
