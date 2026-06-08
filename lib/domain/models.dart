@@ -22,13 +22,13 @@ class SliderViewObject {
 
 //? login models
 
-class Customer {
-  //? this class represents the customer data structure in the response
-  String id; //? this is the id of the customer
-  String name; //? this is the name of the customer
+class User {
+  //? this class represents the user data structure in the response
+  String id; //? this is the id of the user
+  String name; //? this is the name of the user
   int
-  numOfNotifications; //? this is the number of notifications for the customer
-  Customer({
+  numOfNotifications; //? this is the number of notifications for the user
+  User({
     required this.id,
     required this.name,
     required this.numOfNotifications,
@@ -37,17 +37,18 @@ class Customer {
 
 class Contact {
   //? this class represents the contact data structure in the response
-  String number; //? this is the phone number of the customer
-  String email; //? this is the email of the customer
-  String link; //? this is the link to the customer's profile
+  String number; //? this is the phone number of the user
+  String email; //? this is the email of the user
+  String link; //? this is the link to the user's profile
   Contact({required this.number, required this.email, required this.link});
 }
 
 class Auth {
   //? this class represents the authentication data structure in the response
-  Customer customer; //? this is the customer data for the authenticated user
-  Contact contact; //? this is the contact data for the authenticated user
-  Auth({required this.customer, required this.contact});
+  User? user; //? this is the User data for the authenticated user
+  //! i made the user and contact fields nullable because it is not a permttive
+  Contact? contact; //? this is the contact data for the authenticated user
+  Auth({required this.user, required this.contact});
 }
 
 //* we created the above classes to represent the data structure of the response from the login API and to make it easier to convert the JSON data to Dart objects and to handle the data in a more structured way in the app.

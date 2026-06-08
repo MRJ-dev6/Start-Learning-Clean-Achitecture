@@ -49,6 +49,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 21- Add the API client class using the retrofit package <br>
 22- Create login models to represent the data structure of the response <br>
 23- Create extensions functions <br>
+24- Create mapper extensions  <br>
 ---
 
 ## ✅ Concepts Learned
@@ -62,6 +63,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 - ✅ Dio + Retrofit + Code Generation
 - ✅ JSON Serialization (json_serializable)
 - ✅ extensions functions
+- ✅ Mapping
 ---
 
 ## 📁 Project Structure
@@ -105,7 +107,9 @@ lib/
     ├──network
     │  ├──app_api.dart
     │  └──app_api.g.dart
-    └──response
-       ├──response.dart
-       └──response.g.dart
+    ├─response
+    │  ├──response.dart
+    │  └──response.g.dart
+    └──mapper
+       └──mapper.dart
 ```
