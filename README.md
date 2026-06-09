@@ -57,6 +57,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 26. Create the remote data source class and remote data source implementation class <br>
 27. Add the network info class and network info implementation class<br>
 28. Create repository implementation class<br>
+29. Add error handler class <br>
 </p>
 
 ---
@@ -75,6 +76,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 - ✅ Mapping
 - ✅ Either
 - ✅ Remote Data Source
+- ✅ Error Handler
 ---
 
 ## 📁 Project Structure
@@ -122,6 +124,7 @@ lib/
     │  ├──app_api.dart
     │  ├──app_api.g.dart
     │  ├──failure.dart
+    │  ├──error_handler.dart
     │  ├──network_info.dart
     │  └──requests.dart
     ├─response
