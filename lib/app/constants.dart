@@ -3,4 +3,6 @@ class Constants {
       "https://tut-app-666.wiremockapi.cloud/"; //? this is the base url for API
   static const String empty = ""; //? for empty string
   static const int zero = 0; //? for empty int
+  static const String defaultLanguage = "en";
+  static const Duration timeOut = Duration(seconds: 30);
 }
