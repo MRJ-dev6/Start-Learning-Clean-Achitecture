@@ -200,6 +200,11 @@ class ResponseMessage {
   static const String defualt = "Something went wrong, try again later";
 }
 
+class ApiInternelStatus {
+  static const int success = 0;
+  static const int failure = 1;
+}
+
 //* what i done in this file :
 // 1. I created an enum called DataSource to represent the different types of data sources that we can have in our app, such as success, badRequest, noContent, forbidden, unAuthorized, notFound, internelServerError, connectionTimeout, cancel, recieveTimeout, sendTimeout, cacheError, noInternetConnection.
 // 2. I created an extension on the DataSource enum called DataSourceExtension to add a method called getFailure() that will return a Failure object based on the value of the DataSource enum. This method will be used to convert the DataSource enum to a Failure object that can be used in the app to handle the errors in a more structured way and to reduce boilerplate code when handling errors in the app.

@@ -59,6 +59,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 28. Create repository implementation class<br>
 29. Add error handler class <br>
 30. continue implementing the error handler class <br>
+31. Enhance error handling by adding a new error type and updating repository implementation for structured error management <br>
 </p>
 
 ---
