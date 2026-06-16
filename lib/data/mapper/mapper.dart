@@ -1,16 +1,15 @@
+import 'package:tut_app/app/constants.dart';
 import 'package:tut_app/app/extensions.dart';
 import 'package:tut_app/data/response/response.dart';
 import 'package:tut_app/domain/models/models.dart';
-import 'package:tut_app/presentation/resources/constants_manager.dart';
 
 extension UserResponseMapper on UserResponse? {
   //? This extension method converts a UserResponse object to a User domain model.
   User toDomain() {
     return User(
-      id: this?.id.orEmpty() ?? AppConstants.empty,
-      name: this?.name.orEmpty() ?? AppConstants.empty,
-      numOfNotifications:
-          this?.numOfNotifications.orZero() ?? AppConstants.zero,
+      id: this?.id.orEmpty() ?? Constants.empty,
+      name: this?.name.orEmpty() ?? Constants.empty,
+      numOfNotifications: this?.numOfNotifications.orZero() ?? Constants.zero,
     );
   }
 }
@@ -19,9 +18,9 @@ extension ContactsResponseMapper on ContactsResponse? {
   //? This extension method converts a ContactsResponse object to a Contact domain model.
   Contact toDomain() {
     return Contact(
-      number: this?.number.orEmpty() ?? AppConstants.empty,
-      email: this?.email.orEmpty() ?? AppConstants.empty,
-      link: this?.link.orEmpty() ?? AppConstants.empty,
+      number: this?.number.orEmpty() ?? Constants.empty,
+      email: this?.email.orEmpty() ?? Constants.empty,
+      link: this?.link.orEmpty() ?? Constants.empty,
     );
   }
 }

@@ -1,4 +1,47 @@
+import 'package:dio/dio.dart';
+import 'package:tut_app/app/constants.dart';
 import 'package:tut_app/data/network/failure.dart';
+
+class ErrorHandler implements Exception {
+  late Failure failure;
+  ErrorHandler.handle(dynamic error) {
+    if (error is DioException) {
+      failure = _handleError(error);
+    } else {
+      failure = DataSource.defualt.getFailure();
+    }
+  }
+}
+
+Failure _handleError(DioException error) {
+  switch (error.type) {
+    case DioExceptionType.connectionTimeout:
+      return DataSource.connectionTimeout.getFailure();
+    case DioExceptionType.sendTimeout:
+      return DataSource.sendTimeout.getFailure();
+    case DioExceptionType.receiveTimeout:
+      return DataSource.recieveTimeout.getFailure();
+    case DioExceptionType.badCertificate:
+      return DataSource.badCertificate.getFailure();
+    case DioExceptionType.badResponse:
+      if (error.response != null &&
+          error.response?.statusCode != null &&
+          error.response?.statusMessage != null) {
+        return Failure(
+          code: error.response?.statusCode ?? Constants.zero,
+          message: error.response?.statusMessage ?? Constants.empty,
+        );
+      } else {
+        return DataSource.defualt.getFailure();
+      }
+    case DioExceptionType.cancel:
+      return DataSource.cancel.getFailure();
+    case DioExceptionType.connectionError:
+      return DataSource.noInternetConnection.getFailure();
+    case DioExceptionType.unknown:
+      return DataSource.defualt.getFailure();
+  }
+}
 
 enum DataSource {
   success,
@@ -14,6 +57,8 @@ enum DataSource {
   sendTimeout,
   cacheError,
   noInternetConnection,
+  defualt,
+  badCertificate,
 }
 
 extension DataSourceExtension on DataSource {
@@ -84,6 +129,16 @@ extension DataSourceExtension on DataSource {
           code: ResponseCode.noInternetConnection,
           message: ResponseMessage.noInternetConnection,
         );
+      case DataSource.defualt:
+        return Failure(
+          code: ResponseCode.defualt,
+          message: ResponseMessage.defualt,
+        );
+      case DataSource.badCertificate:
+        return Failure(
+          code: ResponseCode.badCertificate,
+          message: ResponseMessage.badCertificate,
+        );
     }
   }
 }
@@ -109,6 +164,8 @@ class ResponseCode {
   static const int cacheError = -5; //? failure, cache error
   static const int noInternetConnection =
       -6; //? failure, no internet connection
+  static const int badCertificate = -7; //? failure, bad certificate error
+  static const int defualt = 00;
 }
 
 class ResponseMessage {
@@ -138,6 +195,9 @@ class ResponseMessage {
       "Cache error, try again later"; //? failure, cache error
   static const String noInternetConnection =
       "No internet connection, try again later"; //? failure, no internet connection
+  static const String badCertificate =
+      "Bad certificate, try again later"; //? failure, bad certificate error
+  static const String defualt = "Something went wrong, try again later";
 }
 
 //* what i done in this file :

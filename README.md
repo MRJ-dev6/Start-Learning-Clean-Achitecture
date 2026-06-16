@@ -58,6 +58,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 27. Add the network info class and network info implementation class<br>
 28. Create repository implementation class<br>
 29. Add error handler class <br>
+30. continue implementing the error handler class <br>
 </p>
 
 ---
@@ -85,6 +86,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 lib/
 ├── app/
 │   ├── app.dart
+│   ├──constants.dart
 │   └── extensions.dart
 ├── presentation/
 │   ├── forgotPassword/
