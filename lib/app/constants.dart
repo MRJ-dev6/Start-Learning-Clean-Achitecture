@@ -9,4 +9,5 @@ class Constants {
     milliseconds: 60000,
   ); //? this is the timeout duration for API calls
   static const String token = "token here";
+  static const String prefsKeyLanguage = "prefs key here";
 }

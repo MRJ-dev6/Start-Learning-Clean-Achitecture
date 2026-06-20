@@ -64,6 +64,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 33. Add pretty dio logger for enhanced API request/response logging and update dependencies
 </p>
 34. Add timeout duration and token constant; implement language manager for structured language handling <br>
+35. Add app preferences class for managing shared preferences and language settings; update constants and dependencies
 
 ---
 
@@ -91,6 +92,7 @@ lib/
 ├── app/
 │   ├── app.dart
 │   ├──constants.dart
+│   ├──app_prefs.dart
 │   └── extensions.dart
 ├── presentation/
 │   ├── forgotPassword/
