@@ -64,7 +64,8 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 33. Add pretty dio logger for enhanced API request/response logging and update dependencies <br>
 34. Add timeout duration and token constant; implement language manager for structured language handling <br>
 35. Add app preferences class for managing shared preferences and language settings; update constants and dependencies <br>
-36. Refactor DioFactory to utilize AppPreferences for dynamic language handling and clean up timeout settings
+36. Refactor DioFactory to utilize AppPreferences for dynamic language handling and clean up timeout settings<br>
+37. Add BaseUsecase abstract class for use case implementation
 </p>
 
 ---
@@ -84,6 +85,8 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 - ✅ Either
 - ✅ Remote Data Source
 - ✅ Error Handler
+- ✅ UseCase
+
 ---
 
 ## 📁 Project Structure
@@ -103,9 +106,9 @@ lib/
 │   ├── main/
 │   │    └──main_view.dart
 │   ├── onBoarding/
-│   │   ├──view
+│   │   ├──view/
 │   │   ├  └──on_boarding_view.dart
-│   │   └──viewModel
+│   │   └──viewModel/
 │   │      └──on_boarding_viewmodel.dart
 │   ├── register/
 │   │    └──register_view.dart
@@ -125,12 +128,14 @@ lib/
 │   └──storeDetails/
 │      └──store_details_view.dart
 ├── domain/
-│    ├──models
+│    ├──models/
 │    │  └──models.dart
-│    └──repository
-│          └──repository.dart   
+│    ├──repository/
+│    │   └──repository.dart   
+│    └──usecase/
+│       └──base_usecase.dart
 └── data/
-    ├──network
+    ├──network/
     │  ├──app_api.dart
     │  ├──app_api.g.dart
     │  ├──dio_factory.dart
@@ -138,13 +143,13 @@ lib/
     │  ├──error_handler.dart
     │  ├──network_info.dart
     │  └──requests.dart
-    ├─response
+    ├─response/
     │  ├──response.dart
     │  └──response.g.dart
-    ├──mapper
+    ├──mapper/
     │   └──mapper.dart
-    ├──data_source
+    ├──data_source/
     │   └──remote_data_source.dart
-    └──repository
+    └──repository/
        └──repository_impl.dart 
 ```

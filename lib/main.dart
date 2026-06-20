@@ -76,3 +76,4 @@ void main() {
 //39. Start creating language manager class to handle the language of the app and to make it easier to change the language of the app in a more structured way and to reduce boilerplate code when handling the language of the app in the presentation layer.
 //40. Create app preferences class to handle the shared preferences of the app and to make it easier to handle the shared preferences in a more structured way and to reduce boilerplate code when handling the shared preferences in the app and to handle the language preference of the app using the shared preferences and to return the default language if there is no language preference set in the shared preferences.
 //41. Refactor DioFactory to utilize AppPreferences for dynamic language handling and clean up timeout settings
+//42. Add BaseUsecase abstract class for use case implementation
