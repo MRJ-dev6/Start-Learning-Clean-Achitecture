@@ -65,7 +65,8 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 34. Add timeout duration and token constant; implement language manager for structured language handling <br>
 35. Add app preferences class for managing shared preferences and language settings; update constants and dependencies <br>
 36. Refactor DioFactory to utilize AppPreferences for dynamic language handling and clean up timeout settings<br>
-37. Add BaseUsecase abstract class for use case implementation
+37. Add BaseUsecase abstract class for use case implementation <br>
+38. Add LoginUsecase implementation for user authentication
 </p>
 
 ---
@@ -133,7 +134,8 @@ lib/
 │    ├──repository/
 │    │   └──repository.dart   
 │    └──usecase/
-│       └──base_usecase.dart
+│       ├──base_usecase.dart
+│       └──login_usecase.dart
 └── data/
     ├──network/
     │  ├──app_api.dart
