@@ -61,10 +61,12 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 30. continue implementing the error handler class <br>
 31. Enhance error handling by adding a new error type and updating repository implementation for structured error management <br>
 32. Implement Dio factory class for structured API calls and enhance error handling <br>
-33. Add pretty dio logger for enhanced API request/response logging and update dependencies
-</p>
+33. Add pretty dio logger for enhanced API request/response logging and update dependencies <br>
+
 34. Add timeout duration and token constant; implement language manager for structured language handling <br>
-35. Add app preferences class for managing shared preferences and language settings; update constants and dependencies
+35. Add app preferences class for managing shared preferences and language settings; update constants and dependencies <br>
+36. Refactor DioFactory to utilize AppPreferences for dynamic language handling and clean up timeout settings
+</p>
 
 ---
 
