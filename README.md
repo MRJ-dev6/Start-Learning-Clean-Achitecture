@@ -60,7 +60,8 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 29. Add error handler class <br>
 30. continue implementing the error handler class <br>
 31. Enhance error handling by adding a new error type and updating repository implementation for structured error management <br>
-32. Implement Dio factory class for structured API calls and enhance error handling
+32. Implement Dio factory class for structured API calls and enhance error handling <br>
+33. Add pretty dio logger for enhanced API request/response logging and update dependencies
 </p>
 
 ---
