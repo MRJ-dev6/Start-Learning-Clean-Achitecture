@@ -16,7 +16,7 @@ class DioFactory {
     Map<String, String> headers = {
       contentType: applicationJson,
       accept: applicationJson,
-      authorization: "Token here",
+      authorization: Constants.token,
       defualtLanguage: Constants.defaultLanguage,
     };
 

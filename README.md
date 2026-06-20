@@ -63,6 +63,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 32. Implement Dio factory class for structured API calls and enhance error handling <br>
 33. Add pretty dio logger for enhanced API request/response logging and update dependencies
 </p>
+34. Add timeout duration and token constant; implement language manager for structured language handling <br>
 
 ---
 
@@ -109,6 +110,7 @@ lib/
 │   │     ├──assets_manager.dart
 │   │     ├──color_manager.dart
 │   │     ├──constants_manager.dart
+│   │     ├──language_manager.dart
 │   │     ├──font_manager.dart
 │   │     ├──routes_manager.dart
 │   │     ├──strings_manager.dart

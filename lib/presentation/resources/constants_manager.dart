@@ -3,6 +3,8 @@ class AppConstants {
       3; // ? this is the delay time for the splash screen in seconds
   static const int sliderAnimationDelay =
       500; // ? this is the delay time for the slider animation in milliseconds
+  static const String arabic = "ar";
+  static const String english = "en";
 }
 //! this class is used to manage the constants of the app and to avoid hardcoding the constants in the code and to make it easier to change the constants in the future if needed.
 //? Benefit of using a constants manager class :
