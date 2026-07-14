@@ -11,13 +11,19 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 - Professional resource management (Colors, Fonts, Themes, Strings, Assets...)
 - MVVM Architecture for OnBoarding Screen
 - Mock API with WireMock
-- Dio + Retrofit setup with code generation
+- Dio + Retrofit setup with code generation + Pretty Dio Logger
 - BaseResponse + multiple typed response models
-- Extension Functions (`NonNullString` & `NonNullInteger`)
+- Extension Functions & Mapper extensions
 - Login models in Domain Layer
 - `AppServiceClient` using Retrofit + Dio
 - Organized Data Layer (network + response folders)
-- Started implementing the Login request
+- RemoteDataSource interface + implementation
+- NetworkInfo interface + implementation
+- Failure class + advanced Error Handler
+- Repository interface + RepositoryImpl
+- BaseUsecase + LoginUsecase
+- App Preferences & Language management
+- Dio Factory improvements
 ---
 
 ## 📸 Screenshots
@@ -40,34 +46,32 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 ## 📋 Commits Order (Step by Step)
 <p>
 1. Project setup + clean main.dart <br>
-2. Create layers folders (presentation, domain, data, app) <br>
-3. Create Application class + Singleton Pattern <br>
-4-14. Add Resource Managers (Color, Font, Style, Theme, Route, String, Asset, Constants...) <br>
-15. OnBoarding Assets & Strings <br>
-16. OnBoarding Screen (first implementation) <br>
-17. OnBoarding Screen Refactoring with MVVM <br>
-18. Add Dio + Retrofit + json_serializable packages <br>
-19. Create BaseResponse class + specific response models <br>
-20. Code generation for JSON handling (build_runner) <br>
-21. Add the API client class using the retrofit package <br>
-22. Create login models to represent the data structure of the response <br>
-23. Create extensions functions <br>
+2. Create layers folders (presentation, domain, data, app)  <br>
+3. Create Application class + Singleton Pattern <br> 
+4-14. Add Resource Managers (Color, Font, Style, Theme, Route, String, Asset, Constants...)  <br>
+15. OnBoarding Assets & Strings  <br>
+16. OnBoarding Screen (first implementation)  <br>
+17. OnBoarding Screen Refactoring with MVVM  <br>
+18. Add Dio + Retrofit + json_serializable packages  <br>
+19. Create BaseResponse class + specific response models  <br>
+20. Code generation for JSON handling (build_runner)  <br>
+21. Add the API client class using the retrofit package  <br>
+22. Create login models to represent the data structure of the response  <br>
+23. Create extensions functions  <br>
 24. Create mapper extensions  <br>
-25. Start implementing the login request <br>
-26. Create the remote data source class and remote data source implementation class <br>
-27. Add the network info class and network info implementation class<br>
-28. Create repository implementation class<br>
-29. Add error handler class <br>
-30. continue implementing the error handler class <br>
-31. Enhance error handling by adding a new error type and updating repository implementation for structured error management <br>
-32. Implement Dio factory class for structured API calls and enhance error handling <br>
-33. Add pretty dio logger for enhanced API request/response logging and update dependencies <br>
-34. Add timeout duration and token constant; implement language manager for structured language handling <br>
-35. Add app preferences class for managing shared preferences and language settings; update constants and dependencies <br>
-36. Refactor DioFactory to utilize AppPreferences for dynamic language handling and clean up timeout settings<br>
-37. Add BaseUsecase abstract class for use case implementation <br>
-38. Add LoginUsecase implementation for user authentication
-</p>
+25. Start implementing the login request  <br>
+26. Create the remote data source class and remote data source implementation class  <br>
+27. Add the network info class and network info implementation class  <br>
+28. Create repository implementation class  <br>
+29. Add error handler class <br> 
+30. Enhance error handling  <br>
+31. Implement Dio factory class  <br>
+32. Add Pretty Dio Logger  <br>
+33. Add timeout & language manager  <br>
+34. Add App Preferences  <br>
+35. Refactor DioFactory  <br>
+36. Add BaseUsecase  <br>
+37. Add LoginUsecase<br>
 
 ---
 
@@ -103,7 +107,10 @@ lib/
 │   ├── forgotPassword/
 │   │   └──forgot_password.dart
 │   ├── login/
-│   │    └──login_view.dart
+│   │    ├──view 
+│   │    │  └──login_view.dart
+│   │    └──viewModel
+│   │        └──login_viewmodel.dart
 │   ├── main/
 │   │    └──main_view.dart
 │   ├── onBoarding/
