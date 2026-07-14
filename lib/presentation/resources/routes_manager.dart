@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:tut_app/presentation/forgotPassword/forgot_password.dart';
-import 'package:tut_app/presentation/login/login_view.dart';
+import 'package:tut_app/presentation/login/view/login_view.dart';
 import 'package:tut_app/presentation/main/main_view.dart' show MainView;
 import 'package:tut_app/presentation/onBoarding/view/on_boarding_view.dart';
 import 'package:tut_app/presentation/register/register_view.dart';
@@ -39,18 +39,17 @@ class RouteGenerator {
         return unDefinedRoute();
     }
   }
+
   static Route<dynamic> unDefinedRoute() {
     return MaterialPageRoute(
-        builder: (_) => Scaffold(
-              appBar: AppBar(
-                title: const Text(AppStrings.noRouteFound),
-              ),
-              body: const Center(
-                child: Text(AppStrings.noRouteFound),
-              ),
-            ));
+      builder: (_) => Scaffold(
+        appBar: AppBar(title: const Text(AppStrings.noRouteFound)),
+        body: const Center(child: Text(AppStrings.noRouteFound)),
+      ),
+    );
   }
 }
+
 // ! this class is used to manage the routes of the app and to avoid hardcoding the routes in the code and to make it easier to change the routes in the future if needed.
 // ? Benefit of using a route manager class :
 // 1. It helps to keep the code organized and maintainable.
