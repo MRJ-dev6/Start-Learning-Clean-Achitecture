@@ -75,6 +75,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 38. Add LoginViewModel to manage login screen state and interactions <br>
 39. enhance LoginViewModel with detailed comments and stream management <br>
 40. Implement LoginObject data class and update login view model methods <br>
+41. Update LoginViewModel to manage loginObject state and fix stream controller initialization <br>
 
 ---
 
