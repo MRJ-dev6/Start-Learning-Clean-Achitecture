@@ -74,6 +74,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 37. Add LoginUsecase<br>
 38. Add LoginViewModel to manage login screen state and interactions <br>
 39. enhance LoginViewModel with detailed comments and stream management <br>
+40. Implement LoginObject data class and update login view model methods <br>
 
 ---
 
@@ -94,7 +95,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 - ✅ Error Handler
 - ✅ UseCase
 - ✅ Broadcasting
-
+- ✅ Data Classes
 ---
 
 ## 📁 Project Structure
@@ -136,8 +137,11 @@ lib/
 │   │     └──values_manager.dart
 │   ├──splash/
 │   │    └──splash_view.dart
-│   └──storeDetails/
-│      └──store_details_view.dart
+│   ├──storeDetails/
+│   │  └──store_details_view.dart
+│   └──common
+│      ├──freezed_data_classes.dart
+│      └──freezed_data_classes.freezed.dart
 ├── domain/
 │    ├──models/
 │    │  └──models.dart

@@ -23,7 +23,6 @@ class _AppServiceClient implements AppServiceClient {
 
   @override
   Future<AuthResponse> login(String email, String password) async {
-    //? This method is the implementation of the login API endpoint defined in the AppServiceClient class. It constructs the necessary HTTP request using the Dio package, including setting the method to POST, adding the email and password as form data, and handling the response by converting it into an instance of AuthResponse. The method also includes error handling to log any exceptions that occur during the request.
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
@@ -78,4 +77,3 @@ class _AppServiceClient implements AppServiceClient {
 }
 
 // dart format on
-//* The _AppServiceClient class is the generated implementation of the AppServiceClient interface defined in the app_api.dart file. It uses the Dio package to make HTTP requests and handle responses according to the API endpoints defined in the AppServiceClient class. The methods in this class are generated based on the annotations and method signatures in the AppServiceClient interface, allowing for a clean separation of concerns and reducing boilerplate code when working with APIs in Flutter applications.
