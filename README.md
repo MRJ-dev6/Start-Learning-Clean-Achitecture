@@ -72,6 +72,8 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 35. Refactor DioFactory  <br>
 36. Add BaseUsecase  <br>
 37. Add LoginUsecase<br>
+38. Add LoginViewModel to manage login screen state and interactions <br>
+39. enhance LoginViewModel with detailed comments and stream management <br>
 
 ---
 
@@ -91,6 +93,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 - ✅ Remote Data Source
 - ✅ Error Handler
 - ✅ UseCase
+- ✅ Broadcasting
 
 ---
 

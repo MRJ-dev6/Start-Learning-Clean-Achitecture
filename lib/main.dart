@@ -78,3 +78,5 @@ void main() {
 //41. Refactor DioFactory to utilize AppPreferences for dynamic language handling and clean up timeout settings
 //42. Add BaseUsecase abstract class for use case implementation
 //43. Add LoginUsecase implementation for user authentication
+//44. Add LoginViewModel to manage login screen state and interactions
+//45. Refactor LoginViewModel to implement input/output interfaces and manage streams for username and password validation
