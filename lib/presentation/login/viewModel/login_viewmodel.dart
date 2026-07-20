@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:tut_app/data/network/failure.dart';
+import 'package:tut_app/domain/models/models.dart';
+import 'package:tut_app/domain/usecase/login_usecase.dart';
 import 'package:tut_app/presentation/base/base_viewmodel.dart';
 import 'package:tut_app/presentation/common/freezed_data_classes.dart';
 
@@ -15,6 +18,9 @@ class LoginViewModel extends BaseViewmodel
 
   //* data classes
   var loginObject = LoginObject("", "");
+  final LoginUsecase _loginUsecase;
+
+  LoginViewModel(this._loginUsecase);
   //? inputs
   @override
   void dispose() {
@@ -56,10 +62,14 @@ class LoginViewModel extends BaseViewmodel
   }
 
   @override
-  login() {
+  login() async {
     //? this is the method to login
-    // TODO: implement login
-    throw UnimplementedError();
+    (await _loginUsecase.excute(
+      LoginUsecaseInput(loginObject.userName, loginObject.password),
+    )).fold(
+      (Failure failure) => {print(failure.message)},
+      (Auth data) => {print(data.user?.name)},
+    );
   }
 
   //! outputs
