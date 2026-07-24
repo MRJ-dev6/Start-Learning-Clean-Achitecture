@@ -20,9 +20,10 @@ class LoginViewModel extends BaseViewmodel
 
   //* data classes
   var loginObject = LoginObject("", "");
-  final LoginUsecase _loginUsecase;
+  // final LoginUsecase _loginUsecase;
 
-  LoginViewModel(this._loginUsecase);
+  // LoginViewModel(this._loginUsecase);
+  LoginViewModel();
   //? inputs
   @override
   void dispose() {
@@ -54,7 +55,7 @@ class LoginViewModel extends BaseViewmodel
   setPassword(String password) {
     //? this is the method to set the password
     inputPassword.add(password);
-    loginObject.copyWith(
+    loginObject = loginObject.copyWith(
       password: password,
     ); //? this is the method to copy the loginObject with the new password
     inputAreAllValid.add(null);
@@ -64,21 +65,22 @@ class LoginViewModel extends BaseViewmodel
   setUserName(String userName) {
     //? this is the method to set the username
     inputUserName.add(userName);
-    loginObject.copyWith(
+    loginObject = loginObject.copyWith(
       userName: userName,
     ); //? this is the method to copy the loginObject with the new username
+
     inputAreAllValid.add(null);
   }
 
   @override
   login() async {
-    //? this is the method to login
-    (await _loginUsecase.excute(
-      LoginUsecaseInput(loginObject.userName, loginObject.password),
-    )).fold(
-      (Failure failure) => {print(failure.message)},
-      (Auth data) => {print(data.user?.name)},
-    );
+    // //? this is the method to login
+    // (await _loginUsecase.excute(
+    //   LoginUsecaseInput(loginObject.userName, loginObject.password),
+    // )).fold(
+    //   (Failure failure) => {print(failure.message)},
+    //   (Auth data) => {print(data.user?.name)},
+    // );
   }
 
   //! outputs
@@ -109,7 +111,7 @@ bool _isUserNameValid(String userName) {
   return userName.isNotEmpty;
 }
 
-bool _areAllValid(dynamic loginObject) {
+bool _areAllValid(LoginObject loginObject) {
   return _isPasswordValid(loginObject.password) &&
       _isUserNameValid(loginObject.userName);
 }

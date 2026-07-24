@@ -3,6 +3,7 @@ import 'package:tut_app/domain/usecase/login_usecase.dart';
 import 'package:tut_app/presentation/login/viewModel/login_viewmodel.dart';
 import 'package:tut_app/presentation/resources/assets_manager.dart';
 import 'package:tut_app/presentation/resources/color_manager.dart';
+import 'package:tut_app/presentation/resources/routes_manager.dart';
 import 'package:tut_app/presentation/resources/strings_manager.dart';
 import 'package:tut_app/presentation/resources/values_manager.dart';
 
@@ -15,7 +16,7 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   //? create login view model instance
-  final LoginViewModel _loginViewModel = LoginViewModel(_loginUsecase);
+  final LoginViewModel _loginViewModel = LoginViewModel();
   //? create username and password text editing controllers
   final TextEditingController _userNamecontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();
@@ -46,16 +47,15 @@ class _LoginViewState extends State<LoginView> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('')),
-      body: Container(),
+      backgroundColor: ColorManager.white,
+      body: _getContentWidget(),
     );
   }
 
   Widget _getContentWidget() {
     //? this is the method to get the content widget
     return Container(
-      padding: EdgeInsets.only(top: AppPadding.p100), //? padding from top
-      color: ColorManager.white,
+      padding: EdgeInsets.only(top: AppPadding.p70), //? padding from top
       child: SingleChildScrollView(
         //? this is the method to make the content scrollable
         child: Form(
@@ -67,7 +67,7 @@ class _LoginViewState extends State<LoginView> {
                 child: Image.asset(ImagesAssets.splashLogo),
               ), //? display the logo
               SizedBox(
-                height: AppSize.s30,
+                height: AppSize.s20,
               ), //? add space between logo and text field
               Padding(
                 //? add padding to the text field
@@ -96,7 +96,7 @@ class _LoginViewState extends State<LoginView> {
                 ),
               ),
               SizedBox(
-                height: AppSize.s30,
+                height: AppSize.s20,
               ), //? add space between username text field and password text field
               Padding(
                 //? add padding to the text field
@@ -124,7 +124,7 @@ class _LoginViewState extends State<LoginView> {
                   },
                 ),
               ),
-              SizedBox(height: AppSize.s40),
+              SizedBox(height: AppSize.s30),
               Padding(
                 padding: EdgeInsetsDirectional.symmetric(
                   horizontal: AppPadding.p30,
@@ -132,16 +132,53 @@ class _LoginViewState extends State<LoginView> {
                 child: StreamBuilder<bool>(
                   stream: _loginViewModel.outAreAllValid,
                   builder: (context, snapshot) {
-                    return ElevatedButton(
-                      //? if all the inputs are valid then enable the button else disable it
-                      onPressed: () {
-                        (snapshot.data ?? false)
-                            ? _loginViewModel.login()
-                            : null;
-                      },
-                      child: Text(AppStrings.login),
+                    return SizedBox(
+                      height: AppSize.s40,
+                      width: double.infinity,
+                      child: ElevatedButton(
+                        //? if all the inputs are valid then enable the button else disable it
+                        onPressed: (snapshot.data ?? false)
+                            ? () => _loginViewModel.login()
+                            : null,
+                        child: Text(AppStrings.login),
+                      ),
                     );
                   },
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                  horizontal: AppPadding.p20,
+                  vertical: AppPadding.p12,
+                ),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                          context,
+                          RoutesManager.forgotPasswordRoute,
+                        );
+                      },
+                      child: Text(
+                        AppStrings.forgetPassword,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ),
+                    TextButton(
+                      onPressed: () {
+                        Navigator.pushReplacementNamed(
+                          context,
+                          RoutesManager.registerRoute,
+                        );
+                      },
+                      child: Text(
+                        AppStrings.register,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
