@@ -3,6 +3,7 @@ import 'package:tut_app/domain/usecase/login_usecase.dart';
 import 'package:tut_app/presentation/login/viewModel/login_viewmodel.dart';
 import 'package:tut_app/presentation/resources/assets_manager.dart';
 import 'package:tut_app/presentation/resources/color_manager.dart';
+import 'package:tut_app/presentation/resources/strings_manager.dart';
 import 'package:tut_app/presentation/resources/values_manager.dart';
 
 class LoginView extends StatefulWidget {
@@ -82,7 +83,63 @@ class _LoginViewState extends State<LoginView> {
                           _userNamecontroller, //? this is the controller for username text field
                       keyboardType: TextInputType
                           .emailAddress, //? this is the keyboard type for username text field
-                      //todo : decorate the text field
+                      decoration: InputDecoration(
+                        hintText: AppStrings.username,
+                        labelText: AppStrings.username,
+                        errorText: (snapshot.data ?? true)
+                            ? null //? if valid return null
+                            : AppStrings
+                                  .usernameError, //? if empty return error message
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(
+                height: AppSize.s30,
+              ), //? add space between username text field and password text field
+              Padding(
+                //? add padding to the text field
+                padding: EdgeInsets.symmetric(horizontal: AppPadding.p30),
+                child: StreamBuilder<bool>(
+                  //? this is the stream builder to listen to the password stream
+                  stream: _loginViewModel.outIsPasswordValid,
+                  builder: (context, snapshot) {
+                    //? this is the builder to build the text field based on the stream
+                    return TextFormField(
+                      //? this is the text field for password
+                      controller:
+                          _passwordcontroller, //? this is the controller for password text field
+                      keyboardType: TextInputType
+                          .visiblePassword, //? this is the keyboard type for password text field
+                      decoration: InputDecoration(
+                        hintText: AppStrings.password,
+                        labelText: AppStrings.password,
+                        errorText: (snapshot.data ?? true)
+                            ? null //? if valid return null
+                            : AppStrings
+                                  .passwordError, //? if empty return error message
+                      ),
+                    );
+                  },
+                ),
+              ),
+              SizedBox(height: AppSize.s40),
+              Padding(
+                padding: EdgeInsetsDirectional.symmetric(
+                  horizontal: AppPadding.p30,
+                ),
+                child: StreamBuilder<bool>(
+                  stream: _loginViewModel.outAreAllValid,
+                  builder: (context, snapshot) {
+                    return ElevatedButton(
+                      //? if all the inputs are valid then enable the button else disable it
+                      onPressed: () {
+                        (snapshot.data ?? false)
+                            ? _loginViewModel.login()
+                            : null;
+                      },
+                      child: Text(AppStrings.login),
                     );
                   },
                 ),

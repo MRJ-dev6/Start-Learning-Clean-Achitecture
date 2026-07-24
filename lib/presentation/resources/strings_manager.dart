@@ -16,6 +16,16 @@ class AppStrings {
       'Tut app is an awesome flutter application using clean architecture #4';
 
   static const String skip = 'SKIP';
+
+  static const String username =
+      "Username"; //? hint text for username text form field
+  static const String usernameError = "Please Enter Your Username";
+  static const String password =
+      "Password"; //? hint text for password text form field
+  static const String passwordError = "PLease Enter Your Password";
+  static const String login = "Login"; //? login button
+  static const String forgetPassword = "Forget password";
+  static const String register = "Not a member ? SignUp";
 }
 //! this class is used to manage the strings of the app and to avoid hardcoding the strings in the code and to make it easier to change the strings in the future if needed.
 //? Benefit of using a string manager class :
