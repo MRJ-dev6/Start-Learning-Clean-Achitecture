@@ -77,6 +77,8 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 40. Implement LoginObject data class and update login view model methods <br>
 41. Update LoginViewModel to manage loginObject state and fix stream controller initialization <br>
 42. Implement LoginView with ViewModel binding and text field listeners <br>
+43. Implement form validation and UI updates based on ViewModel streams <br>
+44. register SharedPreferences in dependency injection <br>
 
 ---
 
@@ -98,6 +100,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 - ✅ UseCase
 - ✅ Broadcasting
 - ✅ Data Classes
+- ✅ Dependency Injection
 ---
 
 ## 📁 Project Structure
@@ -106,8 +109,9 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 lib/
 ├── app/
 │   ├── app.dart
-│   ├──constants.dart
-│   ├──app_prefs.dart
+│   ├── constants.dart
+│   ├── app_prefs.dart
+│   ├── di.dart
 │   └── extensions.dart
 ├── presentation/
 │   ├── forgotPassword/
@@ -127,47 +131,47 @@ lib/
 │   ├── register/
 │   │    └──register_view.dart
 │   ├── resource/
-│   │     ├──assets_manager.dart
-│   │     ├──color_manager.dart
-│   │     ├──constants_manager.dart
-│   │     ├──language_manager.dart
-│   │     ├──font_manager.dart
-│   │     ├──routes_manager.dart
-│   │     ├──strings_manager.dart
-│   │     ├──style_manager.dart
-│   │     ├──theme_manager.dart
-│   │     └──values_manager.dart
-│   ├──splash/
-│   │    └──splash_view.dart
-│   ├──storeDetails/
-│   │  └──store_details_view.dart
-│   └──common
-│      ├──freezed_data_classes.dart
-│      └──freezed_data_classes.freezed.dart
+│   │     ├── assets_manager.dart
+│   │     ├── color_manager.dart
+│   │     ├── constants_manager.dart
+│   │     ├── language_manager.dart
+│   │     ├── font_manager.dart
+│   │     ├── routes_manager.dart
+│   │     ├── strings_manager.dart
+│   │     ├── style_manager.dart
+│   │     ├── theme_manager.dart
+│   │     └── values_manager.dart
+│   ├── splash/
+│   │    └── splash_view.dart
+│   ├── storeDetails/
+│   │  └── store_details_view.dart
+│   └── common
+│      ├── freezed_data_classes.dart
+│      └── freezed_data_classes.freezed.dart
 ├── domain/
-│    ├──models/
-│    │  └──models.dart
-│    ├──repository/
-│    │   └──repository.dart   
-│    └──usecase/
-│       ├──base_usecase.dart
-│       └──login_usecase.dart
+│    ├── models/
+│    │  └── models.dart
+│    ├── repository/
+│    │   └── repository.dart   
+│    └── usecase/
+│       ├── base_usecase.dart
+│       └── login_usecase.dart
 └── data/
-    ├──network/
-    │  ├──app_api.dart
-    │  ├──app_api.g.dart
-    │  ├──dio_factory.dart
-    │  ├──failure.dart
-    │  ├──error_handler.dart
-    │  ├──network_info.dart
-    │  └──requests.dart
-    ├─response/
-    │  ├──response.dart
-    │  └──response.g.dart
-    ├──mapper/
-    │   └──mapper.dart
-    ├──data_source/
-    │   └──remote_data_source.dart
-    └──repository/
-       └──repository_impl.dart 
+    ├── network/
+    │  ├── app_api.dart
+    │  ├── app_api.g.dart
+    │  ├── dio_factory.dart
+    │  ├── failure.dart
+    │  ├── error_handler.dart
+    │  ├── network_info.dart
+    │  └── requests.dart
+    ├─ response/
+    │  ├── response.dart
+    │  └── response.g.dart
+    ├── mapper/
+    │   └── mapper.dart
+    ├── data_source/
+    │   └── remote_data_source.dart
+    └── repository/
+       └── repository_impl.dart 
 ```

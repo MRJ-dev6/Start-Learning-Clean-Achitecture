@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:tut_app/domain/usecase/login_usecase.dart';
 import 'package:tut_app/presentation/login/viewModel/login_viewmodel.dart';
 import 'package:tut_app/presentation/resources/assets_manager.dart';
 import 'package:tut_app/presentation/resources/color_manager.dart';
@@ -23,7 +22,7 @@ class _LoginViewState extends State<LoginView> {
   //? create form key to validate the form
   final _formkey = GlobalKey<FormState>();
 
-  _bind() {
+  void _bind() {
     //? start binding to view model
     _loginViewModel.start();
 

@@ -20,10 +20,10 @@ class LoginViewModel extends BaseViewmodel
 
   //* data classes
   var loginObject = LoginObject("", "");
-  // final LoginUsecase _loginUsecase;
+  final LoginUsecase _loginUsecase;
 
-  // LoginViewModel(this._loginUsecase);
-  LoginViewModel();
+  LoginViewModel(this._loginUsecase);
+
   //? inputs
   @override
   void dispose() {
@@ -74,13 +74,13 @@ class LoginViewModel extends BaseViewmodel
 
   @override
   login() async {
-    // //? this is the method to login
-    // (await _loginUsecase.excute(
-    //   LoginUsecaseInput(loginObject.userName, loginObject.password),
-    // )).fold(
-    //   (Failure failure) => {print(failure.message)},
-    //   (Auth data) => {print(data.user?.name)},
-    // );
+    //? this is the method to login
+    (await _loginUsecase.excute(
+      LoginUsecaseInput(loginObject.userName, loginObject.password),
+    )).fold(
+      (Failure failure) => {print(failure.message)},
+      (Auth data) => {print(data.user?.name)},
+    );
   }
 
   //! outputs
