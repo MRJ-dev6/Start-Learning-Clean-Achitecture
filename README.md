@@ -79,6 +79,7 @@ I'm sharing my personal journey learning Clean Architecture with Flutter. Every 
 42. Implement LoginView with ViewModel binding and text field listeners <br>
 43. Implement form validation and UI updates based on ViewModel streams <br>
 44. register SharedPreferences in dependency injection <br>
+45. Register NetworkInfo instance in dependency injection and update LoginViewModel instantiation to use GetIt instance <br>
 
 ---
 

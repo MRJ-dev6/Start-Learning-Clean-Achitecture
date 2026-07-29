@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:tut_app/app/di.dart';
 import 'package:tut_app/presentation/login/viewModel/login_viewmodel.dart';
 import 'package:tut_app/presentation/resources/assets_manager.dart';
 import 'package:tut_app/presentation/resources/color_manager.dart';
@@ -15,7 +16,7 @@ class LoginView extends StatefulWidget {
 
 class _LoginViewState extends State<LoginView> {
   //? create login view model instance
-  final LoginViewModel _loginViewModel = LoginViewModel();
+  final LoginViewModel _loginViewModel = instance<LoginViewModel>();
   //? create username and password text editing controllers
   final TextEditingController _userNamecontroller = TextEditingController();
   final TextEditingController _passwordcontroller = TextEditingController();

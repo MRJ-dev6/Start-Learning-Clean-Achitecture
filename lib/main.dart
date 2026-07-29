@@ -1,7 +1,10 @@
 import 'package:tut_app/app/app.dart';
 import 'package:flutter/material.dart';
+import 'package:tut_app/app/di.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await initAppModule();
   runApp(MyApp());
 }
 
@@ -85,3 +88,11 @@ void main() {
 //48. Implement LoginView with ViewModel binding and text field listeners
 //49. Implement form validation and UI updates based on ViewModel streams
 //50. register SharedPreferences in dependency injection
+//51. register AppPreferences in dependency injection
+//52. register NetworkInfo in dependency injection
+//53. register DioFactory in dependency injection
+//54. register AppServiceClient in dependency injection
+//55. register RemoteDataSource in dependency injection
+//56. register Repository in dependency injection
+//57. register LoginUsecase in dependency injection
+//58. register LoginViewModel in dependency injection
