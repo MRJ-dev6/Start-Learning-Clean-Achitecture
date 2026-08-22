@@ -7,7 +7,7 @@ extension UserResponseMapper on UserResponse? {
   //? This extension method converts a UserResponse object to a User domain model.
   User toDomain() {
     return User(
-      id: this?.id.orEmpty() ?? Constants.empty,
+      id: this?.id?.toString() ?? Constants.empty,
       name: this?.name.orEmpty() ?? Constants.empty,
       numOfNotifications: this?.numOfNotifications.orZero() ?? Constants.zero,
     );

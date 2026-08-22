@@ -1,5 +1,6 @@
 import 'dart:async';
 
+import 'package:flutter/material.dart';
 import 'package:tut_app/data/network/failure.dart';
 import 'package:tut_app/domain/models/models.dart';
 import 'package:tut_app/domain/usecase/login_usecase.dart';
@@ -78,8 +79,8 @@ class LoginViewModel extends BaseViewmodel
     (await _loginUsecase.excute(
       LoginUsecaseInput(loginObject.userName, loginObject.password),
     )).fold(
-      (Failure failure) => {print(failure.message)},
-      (Auth data) => {print(data.user?.name)},
+      (Failure failure) => {debugPrint(failure.message)},
+      (Auth data) => {debugPrint(data.user?.name)},
     );
   }
 

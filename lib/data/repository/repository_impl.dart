@@ -1,5 +1,5 @@
-// ignore_for_file: public_member_api_docs, sort_constructors_first
 import 'package:dartz/dartz.dart';
+import 'package:flutter/widgets.dart';
 
 import 'package:tut_app/data/data_source/remote_data_source.dart';
 import 'package:tut_app/data/mapper/mapper.dart';
@@ -36,7 +36,12 @@ class RepositoryImpl implements Repository {
             ), //? this will return a failure with the message from the API response, and since we are using the Either type, we will return the failure wrapped in a Left() which indicates that the operation was failed and the data is not available.
           );
         }
-      } catch (error) {
+      } catch (error, stackTrace) {
+        // اطبع السطرين دول واعمل Login
+        debugPrint("--- CATCH ERROR DETAILS ---");
+        debugPrint("Error: $error");
+        debugPrint("StackTrace:\n$stackTrace");
+        debugPrint("---------------------------");
         return Left(ErrorHandler.handle(error).failure);
       }
     } else {

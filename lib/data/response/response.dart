@@ -27,7 +27,7 @@ class BaseResponse {
 class UserResponse {
   //? This class represents the user data structure in the response.
   @JsonKey(name: "id")
-  String? id;
+  int? id;
   @JsonKey(name: "name")
   String? name;
   @JsonKey(name: "numOfNotifications")
@@ -59,13 +59,14 @@ class ContactsResponse {
   Map<String, dynamic> toJson() => _$ContactsResponseToJson(this);
 }
 
+@JsonSerializable(explicitToJson: true)
 class AuthResponse extends BaseResponse {
   //? This class represents the authentication response structure.
   @JsonKey(name: "user")
   UserResponse? user;
   @JsonKey(name: "contacts")
   ContactsResponse? contacts;
-  AuthResponse({this.user, this.contacts});
+  AuthResponse({super.status, super.message, this.user, this.contacts});
 
   //? fromJson
   factory AuthResponse.fromJson(Map<String, dynamic> json) =>

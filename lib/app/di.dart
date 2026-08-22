@@ -23,18 +23,30 @@ Future<void> initAppModule() async {
   instance.registerLazySingleton<SharedPreferences>(() => sharedPrefs);
 
   //* App preferences instance
-  instance.registerLazySingleton<AppPreferences>(() => instance());
+  instance.registerLazySingleton<AppPreferences>(
+    () => AppPreferences(instance<SharedPreferences>()),
+  );
   //? why we are dont make instance of AppPreferences here? because we have already registered shared preferences instance above and we can use it in AppPreferences constructor.
   //? so we can use instance() to get the instance of shared preferences and pass it to AppPreferences constructor.
   //! but why we created shared preferences instance (final sharedPrefs = await SharedPreferences.getInstance();) above? cuz we need to wait for the shared preferences instance to be created before we can register it in the get_it instance. so we need to use await here.
 
   //* network info instance
+  final customChecker = InternetConnectionChecker.createInstance(
+    checkTimeout: const Duration(seconds: 3),
+    checkInterval: const Duration(seconds: 5),
+    addresses: [
+      AddressCheckOption(uri: Uri.parse('https://1.1.1.1')),
+      AddressCheckOption(uri: Uri.parse('https://8.8.8.8')),
+    ],
+  );
+
   instance.registerLazySingleton<NetworkInfo>(
-    () => NetworkInfoImpl(InternetConnectionChecker.createInstance()),
+    () => NetworkInfoImpl(customChecker),
   );
   //? why we are using InternetConnectionChecker.createInstance() here? because we want to create a new instance of InternetConnectionChecker every time we need it. so we are using createInstance() method to create a new instance of InternetConnectionChecker.
   //! but why we are not using InternetConnectionChecker() constructor here? because InternetConnectionChecker() constructor is private and we cannot use it outside the package. so we are using createInstance() method to create a new instance of InternetConnectionChecker.
   //? but why we are not using NetworkInfo constructor here? because NetworkInfo is an abstract class and we cannot create an instance of an abstract class. so we are using NetworkInfoImpl class which implements NetworkInfo interface and we can create an instance of it and its one of the solid principles (dependency inversion principle) that we should depend on abstractions not on concretions. so we are depending on NetworkInfo interface and we are using NetworkInfoImpl class to implement it.
+  //? why we are using customChecker here? because we want to customize the behavior of InternetConnectionChecker and we can do that by creating a new instance of InternetConnectionChecker using createInstance() method and passing the custom parameters to it. so we are using customChecker here to customize the behavior of InternetConnectionChecker.
 
   //* dio factory instance
   instance.registerLazySingleton<DioFactory>(() => DioFactory(instance()));
@@ -54,7 +66,7 @@ Future<void> initAppModule() async {
   );
 }
 
-initLoginModule() {
+void initLoginModule() {
   if (!GetIt.instance.isRegistered<LoginUsecase>()) {
     instance.registerFactory<LoginUsecase>(() => LoginUsecase(instance()));
     instance.registerFactory<LoginViewModel>(() => LoginViewModel(instance()));

@@ -22,11 +22,12 @@ class _AppServiceClient implements AppServiceClient {
   final ParseErrorLogger? errorLogger;
 
   @override
-  Future<AuthResponse> login(String email, String password) async {
+  Future<AuthResponse> login(LoginRequest loginRequest) async {
     final _extra = <String, dynamic>{};
     final queryParameters = <String, dynamic>{};
     final _headers = <String, dynamic>{};
-    final _data = {'email': email, 'Password': password};
+    final _data = <String, dynamic>{};
+    _data.addAll(loginRequest.toJson());
     final _options = _setStreamType<AuthResponse>(
       Options(method: 'POST', headers: _headers, extra: _extra)
           .compose(

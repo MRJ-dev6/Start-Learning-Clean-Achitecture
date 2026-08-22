@@ -10,15 +10,13 @@ abstract class RemoteDataSource {
 
 class RemoteDataSourceoimpl implements RemoteDataSource {
   //? The RemoteDataSourceoimpl class is an implementation of the RemoteDataSource interface.
-  final AppServiceClient _appServiceClient; //? creating a private instance of the AppServiceClient to handle the API calls.
+  final AppServiceClient
+  _appServiceClient; //? creating a private instance of the AppServiceClient to handle the API calls.
   RemoteDataSourceoimpl(this._appServiceClient);
   @override
   Future<AuthResponse> login(LoginRequest loginRequest) async {
     //? The login method takes a LoginRequest object as a parameter and returns a Future that resolves to an AuthResponse.
-    return await _appServiceClient.login(
-      loginRequest.email,
-      loginRequest.password,
-    );
+    return await _appServiceClient.login(loginRequest);
   }
 }
 //? The RemoteDataSourceoimpl class is responsible for making the actual API call to the login endpoint using the AppServiceClient. 
